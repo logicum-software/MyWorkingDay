@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MyWorkingDay" Height="633" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="136*"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="groupBox" Header="Status" Height="100" Margin="273,10,10,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2"/>
+        <GroupBox x:Name="groupBox1" Header="Aufgaben" Height="300" Margin="10,10,750,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2"/>
+        <GroupBox x:Name="groupBox2" Header="Projekte" Margin="10,255,750,10" Grid.Row="1" FontSize="16"/>
+        <GroupBox x:Name="groupBox3" Header="Details" Margin="273,55,10,10" Grid.Row="1" FontSize="16"/>
+
     </Grid>
 </Window>
