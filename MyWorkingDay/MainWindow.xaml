@@ -14,6 +14,7 @@
         <GroupBox x:Name="groupBox" Header="Status" Height="100" Margin="273,10,10,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2">
             <Grid Margin="0" RenderTransformOrigin="-0.17,0.11">
                 <Image x:Name="image" Height="52" Width="52" Margin="10,10,661,0" VerticalAlignment="Top" Source="green_check_small.jpg" Stretch="Fill"/>
+                <Label x:Name="labelStatus" Content="Sie haben keine überfälligen Aufgaben oder Projekte." Margin="85,22,38,10"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Aufgaben" Height="300" Margin="10,10,750,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2"/>
