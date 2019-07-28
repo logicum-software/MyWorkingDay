@@ -29,12 +29,18 @@ namespace MyWorkingDay
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
+            DialogResult = false;
             Close();
         }
 
         private void TextBoxDescription_GotFocus(object sender, RoutedEventArgs e)
         {
             textBoxDescription.SelectAll();
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

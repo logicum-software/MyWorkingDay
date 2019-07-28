@@ -9,7 +9,7 @@ namespace MyWorkingDay
     [Serializable]
     class Aufgabe
     {
-        private String strName { get; set; }
+        public String strName { get; set; }
         private String strDescription { get; set; }
         private DateTime dtPlannedStart { get; set; }
         private DateTime dtPlannedEnd { get; set; }

@@ -12,11 +12,11 @@
         <Label x:Name="label1" Content="Beschreibung" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxDescription" Margin="10,101,10,0" TextWrapping="Wrap" Text="Hier die Beschreibung eingeben..." Height="94" VerticalAlignment="Top" GotFocus="TextBoxDescription_GotFocus"/>
         <Label x:Name="label2" Content="Geplanter Start" Margin="10,200,300,0" Height="26" VerticalAlignment="Top"/>
-        <DatePicker Margin="10,231,270,0" Height="24" VerticalAlignment="Top"/>
-        <Button x:Name="buttonSave" Content="Speichern" Margin="10,0,344,10" Height="20" VerticalAlignment="Bottom"/>
+        <DatePicker x:Name="datePickerStart" Margin="10,231,270,0" Height="24" VerticalAlignment="Top"/>
+        <Button x:Name="buttonSave" Content="Speichern" Margin="10,0,344,10" Height="20" VerticalAlignment="Bottom" Click="ButtonSave_Click"/>
         <Button x:Name="buttonCancel" Content="Abbrechen" Margin="344,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
         <Label x:Name="label3" Content="Geplanter Abschluss" Margin="215,200,65,0" VerticalAlignment="Top"/>
-        <DatePicker Margin="215,231,65,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datePickerEnd" Margin="215,231,65,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox" Content="Aufgabe nach dem Speichern starten" Margin="10,280,194,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
