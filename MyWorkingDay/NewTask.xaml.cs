@@ -10,26 +10,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MyWorkingDay
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für NewTask.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewTask : Window
     {
-        public MainWindow()
+        public NewTask()
         {
             InitializeComponent();
+
+            textBoxName.SelectAll();
+            textBoxName.Focus();
         }
 
-        private void ButtonTaskNew_Click(object sender, RoutedEventArgs e)
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            NewTask dlgNewTask = new NewTask();
+            Close();
+        }
 
-            dlgNewTask.ShowDialog();
+        private void TextBoxDescription_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBoxDescription.SelectAll();
         }
     }
 }
