@@ -8,18 +8,18 @@
         Title="MyWorkingDay" Height="633" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="136*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <GroupBox x:Name="groupBox" Header="Status" Height="100" Margin="273,10,10,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2">
+        <GroupBox x:Name="groupBox" Header="Status" Height="100" Margin="273,0,10,0" VerticalAlignment="Top" FontSize="16" Grid.Row="1">
             <Grid Margin="0" RenderTransformOrigin="-0.17,0.11">
                 <Image x:Name="image" Height="52" Width="52" Margin="10,10,661,0" VerticalAlignment="Top" Source="green_check_small.jpg" Stretch="Fill"/>
                 <Label x:Name="labelStatus" Content="Sie haben keine überfälligen Aufgaben oder Projekte." Margin="85,22,38,10"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox1" Header="Aufgaben" Height="300" Margin="10,10,750,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2"/>
-        <GroupBox x:Name="groupBox2" Header="Projekte" Margin="10,255,750,10" Grid.Row="1" FontSize="16"/>
-        <GroupBox x:Name="groupBox3" Header="Details" Margin="273,55,10,10" Grid.Row="1" FontSize="16"/>
+        <GroupBox x:Name="groupBox1" Header="Aufgaben" Height="300" Margin="10,0,750,0" VerticalAlignment="Top" FontSize="16" Grid.Row="1"/>
+        <GroupBox x:Name="groupBox2" Header="Projekte" Margin="10,305,750,10" Grid.Row="1" FontSize="16"/>
+        <GroupBox x:Name="groupBox3" Header="Details" Margin="273,105,10,10" Grid.Row="1" FontSize="16"/>
 
     </Grid>
 </Window>

@@ -25,6 +25,8 @@ namespace MyWorkingDay
             strDescription = "";
             dtPlannedStart = DateTime.Now;
             dtPlannedEnd = DateTime.Now.AddDays(7);
+            dtStart = new DateTime(1970, 1, 1);
+            dtEnd = new DateTime(1970, 1, 1);
             iStatus = 0;
         }
 
@@ -34,6 +36,8 @@ namespace MyWorkingDay
             strDescription = description;
             dtPlannedStart = plannedStart;
             dtPlannedEnd = plannedEnd;
+            dtStart = new DateTime(1970, 1, 1);
+            dtEnd = new DateTime(1970, 1, 1);
 
             if (bStarten)
                 iStatus = 1;
