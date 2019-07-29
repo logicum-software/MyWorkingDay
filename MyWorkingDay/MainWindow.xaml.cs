@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +30,43 @@ namespace MyWorkingDay
 
             appData = new AppData();
 
+            //Daten einlesen aus Datei "udata.dat"
+            IFormatter formatter = new BinaryFormatter();
+            try
+            {
+                Stream stream = new FileStream("udata.dat", FileMode.Open, FileAccess.Read, FileShare.Read);
+                appData = (AppData)formatter.Deserialize(stream);
+                stream.Close();
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
+                //throw;
+            }
+
             listBoxTasks.ItemsSource = appData.Aufgaben;
+        }
+
+        private void saveData()
+        {
+            FileStream fs = new FileStream("udata.dat", FileMode.Create);
+
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, appData);
+            }
+            catch (SerializationException ec)
+            {
+                MessageBox.Show(ec.Message, "Speicherfehler", MessageBoxButton.OK);
+                //Console.WriteLine("Failed to serialize. Reason: " + ec.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
         }
 
         private void ButtonTaskNew_Click(object sender, RoutedEventArgs e)
@@ -43,13 +82,14 @@ namespace MyWorkingDay
                     if (String.Compare(item.strName, dlgNewTask.textBoxName.Text, true) > -1 &&
                         String.Compare(item.strName, dlgNewTask.textBoxName.Text, true) < 1)
                     {
-                        MessageBox.Show("Eine Aufgabe mit dem Name" + "\n\n" + dlgNewTask.textBoxName.Text + "\n\n" +
-                            "existiert bereits.\n\nBitte wählen Sie einen anderen Namen.", "Aufgabe vorhanden", MessageBoxButton.OK);
+                        MessageBox.Show("Eine Aufgabe mit dem Namen " + dlgNewTask.textBoxName.Text + 
+                            " existiert bereits.\n\nBitte wählen Sie einen anderen Namen.", "Aufgabe vorhanden", MessageBoxButton.OK);
                         return;
                     }
                 }
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
                     dlgNewTask.datePickerStart.DisplayDate, dlgNewTask.datePickerEnd.DisplayDate, (Boolean)dlgNewTask.checkBox.IsChecked));
+                saveData();
                 listBoxTasks.Items.Refresh();
                 //saveData();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
