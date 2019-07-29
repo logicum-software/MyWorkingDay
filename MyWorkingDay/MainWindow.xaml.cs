@@ -95,5 +95,33 @@ namespace MyWorkingDay
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
             }
         }
+
+        private void ButtonDelTask_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxTasks.SelectedItem != null)
+            {
+                if (MessageBox.Show("Möchten Sie die Aufgabe wirklich löschen?", "Aufgabe löschen", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+                else
+                {
+                    if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].strName))
+                    {
+                        saveData();
+                        listBoxTasks.Items.Refresh();
+                        MessageBox.Show("Die Aufgabe wurde gelöscht.", "Aufgabe gelöscht", MessageBoxButton.OK);
+                    }
+                    else
+                        MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);
+                }
+            }
+        }
+
+        private void ListBoxTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBoxTasks.SelectedItem == null)
+                buttonDelTask.IsEnabled = false;
+            else
+                buttonDelTask.IsEnabled = true;
+        }
     }
 }

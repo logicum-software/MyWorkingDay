@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MyWorkingDay
 {
@@ -14,6 +15,23 @@ namespace MyWorkingDay
         public AppData()
         {
             Aufgaben = new List<Aufgabe>();
+        }
+
+        public Boolean delTask(String name)
+        {
+            foreach (Aufgabe item in Aufgaben)
+            {
+                if (item.strName.Equals(name))
+                {
+                    if (Aufgaben.Remove(item))
+                    {
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+            }
+            return false;
         }
     }
 }

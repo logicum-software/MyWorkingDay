@@ -20,8 +20,8 @@
         <GroupBox x:Name="groupBox1" Header="Aufgaben" Height="300" Margin="10,0,750,0" VerticalAlignment="Top" FontSize="16" Grid.Row="1">
             <Grid Margin="0">
                 <Button x:Name="buttonTaskNew" Content="Neu" Margin="10,237,121,0" VerticalAlignment="Top" Click="ButtonTaskNew_Click"/>
-                <Button x:Name="buttonDelTask" Content="Entfernen" Margin="130,237,10,0" Height="25" VerticalAlignment="Top"/>
-                <ListBox x:Name="listBoxTasks" Margin="10,10,10,0" Height="208" VerticalAlignment="Top">
+                <Button x:Name="buttonDelTask" Content="Entfernen" Margin="130,237,10,0" Height="25" VerticalAlignment="Top" Click="ButtonDelTask_Click" IsEnabled="False"/>
+                <ListBox x:Name="listBoxTasks" Margin="10,10,10,0" Height="208" VerticalAlignment="Top" SelectionChanged="ListBoxTasks_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
