@@ -33,7 +33,20 @@
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox2" Header="Projekte" Margin="10,305,750,10" Grid.Row="1" FontSize="16"/>
-        <GroupBox x:Name="groupBox3" Header="Details" Margin="273,105,10,10" Grid.Row="1" FontSize="16"/>
+        <GroupBox x:Name="groupBox3" Header="Details" Margin="273,105,10,10" Grid.Row="1" FontSize="16">
+            <Grid Margin="0">
+                <TextBox x:Name="textBoxName" Margin="10,10,10,0" TextWrapping="Wrap" Text="&lt;-- Bitte eine Aufgabe oder ein Projekt auswählen, um Details anzuzeigen" Height="30" VerticalAlignment="Top"/>
+                <Label x:Name="label" Content="Beschreibung" Margin="10,55,513,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBoxDescription" Height="143" Margin="10,86,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Label x:Name="label1" Content="Geplantes Startdatum" Margin="10,234,513,0" VerticalAlignment="Top"/>
+                <Label x:Name="label2" Content="Geplantes Enddatum" Margin="393,229,130,0" VerticalAlignment="Top"/>
+                <DatePicker x:Name="dateStart" Margin="10,265,513,0" VerticalAlignment="Top"/>
+                <DatePicker x:Name="dateEnd" Margin="393,265,130,0" VerticalAlignment="Top"/>
+                <Label x:Name="label3" Content="Aktuelle Meldungen" Margin="10,299,513,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBoxMessages" Height="65" Margin="10,330,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Button x:Name="buttonSave" Content="Speichern" Margin="10,0,603,10" Height="25" VerticalAlignment="Bottom"/>
+            </Grid>
+        </GroupBox>
 
     </Grid>
 </Window>

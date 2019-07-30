@@ -119,9 +119,17 @@ namespace MyWorkingDay
         private void ListBoxTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (listBoxTasks.SelectedItem == null)
+            {
                 buttonDelTask.IsEnabled = false;
+            }
             else
+            {
                 buttonDelTask.IsEnabled = true;
+                textBoxName.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strName;
+                textBoxDescription.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription;
+                dateStart.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart.ToString();
+                dateEnd.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd.ToString();
+            }
         }
     }
 }

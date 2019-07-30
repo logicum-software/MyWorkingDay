@@ -10,11 +10,11 @@ namespace MyWorkingDay
     class Aufgabe
     {
         public String strName { get; set; }
-        private String strDescription { get; set; }
-        private DateTime dtPlannedStart { get; set; }
-        private DateTime dtPlannedEnd { get; set; }
-        private DateTime dtStart { get; set; }
-        private DateTime dtEnd { get; set; }
+        public String strDescription { get; set; }
+        public DateTime dtPlannedStart { get; set; }
+        public DateTime dtPlannedEnd { get; set; }
+        public DateTime dtStart { get; set; }
+        public DateTime dtEnd { get; set; }
         
         //Status der Augabe: 0 = steht aus, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
         private int iStatus { get; set; }
