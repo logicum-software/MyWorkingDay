@@ -131,5 +131,15 @@ namespace MyWorkingDay
                 dateEnd.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd.ToString();
             }
         }
+
+        private void ButtonProjectNew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonDelProject_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
