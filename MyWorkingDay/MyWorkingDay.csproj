@@ -78,6 +78,7 @@
     <Compile Include="NewTask.xaml.cs">
       <DependentUpon>NewTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Projekt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
