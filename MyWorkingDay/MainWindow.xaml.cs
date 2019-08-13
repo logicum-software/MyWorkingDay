@@ -45,6 +45,7 @@ namespace MyWorkingDay
             }
 
             listBoxTasks.ItemsSource = appData.Aufgaben;
+            listBoxProjects.ItemsSource = appData.Projekte;
         }
 
         private void saveData()

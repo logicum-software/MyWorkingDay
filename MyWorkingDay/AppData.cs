@@ -11,10 +11,12 @@ namespace MyWorkingDay
     class AppData
     {
         public List<Aufgabe> Aufgaben { get; set; }
+        public List<Projekt> Projekte { get; set; }
 
         public AppData()
         {
             Aufgaben = new List<Aufgabe>();
+            Projekte = new List<Projekt>();
         }
 
         public Boolean delTask(String name)
