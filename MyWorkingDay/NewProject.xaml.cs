@@ -22,6 +22,15 @@ namespace MyWorkingDay
         public NewProject()
         {
             InitializeComponent();
+
+            textBoxName.SelectAll();
+            textBoxName.Focus();
+        }
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
         }
     }
 }

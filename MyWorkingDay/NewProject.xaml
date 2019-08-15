@@ -19,7 +19,7 @@
             <Button x:Name="buttonNewTask" Content="Neu" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="75"/>
             <Button x:Name="buttonDelTask" Content="Löschen" HorizontalAlignment="Left" Margin="99,281,0,0" VerticalAlignment="Top" Width="75"/>
             <Button x:Name="buttonSave" Content="Speichern" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom"/>
-            <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+            <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
         </Grid>
 
     </Grid>
