@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWorkingDay"
         mc:Ignorable="d"
-        Title="Neues Projekt" Height="385.89" Width="440" ResizeMode="NoResize" MinWidth="440" MinHeight="385">
+        Title="Neues Projekt" Height="385.89" Width="440" ResizeMode="NoResize" MinWidth="440" MinHeight="385" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid>
+            <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxName" Margin="10,36,10,0" TextWrapping="Wrap" Text="Bitte hier den Namen des Projekts eingeben..." Height="23" VerticalAlignment="Top"/>
+            <Label x:Name="label1" Content="Geplanter Start" Margin="10,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101"/>
+            <DatePicker Margin="10,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="164" MinWidth="164"/>
+            <Label x:Name="label2" Content="Geplantes Ende" Margin="233,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+            <DatePicker Margin="233,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" MinWidth="160"/>
+            <Label x:Name="label3" Content="Projektaufgaben" Margin="10,130,323,0" VerticalAlignment="Top"/>
+            <ListBox x:Name="listBox" Height="120" Margin="10,156,10,0" VerticalAlignment="Top"/>
+            <Button x:Name="buttonNewTask" Content="Neu" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="buttonDelTask" Content="Löschen" HorizontalAlignment="Left" Margin="99,281,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="buttonSave" Content="Speichern" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom"/>
+            <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        </Grid>
+
     </Grid>
 </Window>

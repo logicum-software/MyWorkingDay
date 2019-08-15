@@ -135,7 +135,9 @@ namespace MyWorkingDay
 
         private void ButtonProjectNew_Click(object sender, RoutedEventArgs e)
         {
+            NewProject dlgNewProject = new NewProject();
 
+            dlgNewProject.ShowDialog();
         }
 
         private void ButtonDelProject_Click(object sender, RoutedEventArgs e)
