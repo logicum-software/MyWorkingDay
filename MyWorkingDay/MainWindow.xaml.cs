@@ -122,10 +122,20 @@ namespace MyWorkingDay
             if (listBoxTasks.SelectedItem == null)
             {
                 buttonDelTask.IsEnabled = false;
+                textBoxName.IsEnabled = false;
+                textBoxDescription.IsEnabled = false;
+                textBoxMessages.IsEnabled = false;
+                dateStart.IsEnabled = false;
+                dateEnd.IsEnabled = false;
             }
             else
             {
                 buttonDelTask.IsEnabled = true;
+                textBoxName.IsEnabled = true;
+                textBoxDescription.IsEnabled = true;
+                textBoxMessages.IsEnabled = true;
+                dateStart.IsEnabled = true;
+                dateEnd.IsEnabled = true;
                 textBoxName.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strName;
                 textBoxDescription.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription;
                 dateStart.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart.ToString();
@@ -143,6 +153,12 @@ namespace MyWorkingDay
         private void ButtonDelProject_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TextBoxName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsInitialized && textBoxName.IsFocused)
+                buttonSave.IsEnabled = true;
         }
     }
 }
