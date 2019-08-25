@@ -124,7 +124,6 @@ namespace MyWorkingDay
                 buttonDelTask.IsEnabled = false;
                 textBoxName.IsEnabled = false;
                 textBoxDescription.IsEnabled = false;
-                textBoxMessages.IsEnabled = false;
                 dateStart.IsEnabled = false;
                 dateEnd.IsEnabled = false;
             }
@@ -133,7 +132,6 @@ namespace MyWorkingDay
                 buttonDelTask.IsEnabled = true;
                 textBoxName.IsEnabled = true;
                 textBoxDescription.IsEnabled = true;
-                textBoxMessages.IsEnabled = true;
                 dateStart.IsEnabled = true;
                 dateEnd.IsEnabled = true;
                 textBoxName.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strName;
@@ -141,6 +139,7 @@ namespace MyWorkingDay
                 dateStart.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart.ToString();
                 dateEnd.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd.ToString();
             }
+            buttonSave.IsEnabled = false;
         }
 
         private void ButtonProjectNew_Click(object sender, RoutedEventArgs e)
@@ -158,6 +157,24 @@ namespace MyWorkingDay
         private void TextBoxName_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (this.IsInitialized && textBoxName.IsFocused)
+                buttonSave.IsEnabled = true;
+        }
+
+        private void TextBoxDescription_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsInitialized && textBoxDescription.IsFocused)
+                buttonSave.IsEnabled = true;
+        }
+
+        private void DateStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.IsInitialized)
+                buttonSave.IsEnabled = true;
+        }
+
+        private void DateEnd_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.IsInitialized)
                 buttonSave.IsEnabled = true;
         }
     }

@@ -51,13 +51,13 @@
             <Grid Margin="0">
                 <TextBox x:Name="textBoxName" Margin="10,10,0,0" TextWrapping="Wrap" Text="&lt;-- Bitte Aufgabe oder Projekt wählen" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" IsEnabled="False" TextChanged="TextBoxName_TextChanged"/>
                 <Label x:Name="label" Content="Beschreibung" Margin="10,55,513,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="textBoxDescription" Height="143" Margin="10,86,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False"/>
+                <TextBox x:Name="textBoxDescription" Height="143" Margin="10,86,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" TextChanged="TextBoxDescription_TextChanged"/>
                 <Label x:Name="label1" Content="Geplantes Startdatum" Margin="10,234,513,0" VerticalAlignment="Top"/>
                 <Label x:Name="label2" Content="Geplantes Enddatum" Margin="393,229,130,0" VerticalAlignment="Top"/>
-                <DatePicker x:Name="dateStart" Margin="10,265,513,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <DatePicker x:Name="dateEnd" Margin="393,265,130,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <DatePicker x:Name="dateStart" Margin="10,265,513,0" VerticalAlignment="Top" IsEnabled="False" SelectedDateChanged="DateStart_SelectedDateChanged"/>
+                <DatePicker x:Name="dateEnd" Margin="393,265,130,0" VerticalAlignment="Top" IsEnabled="False" SelectedDateChanged="DateEnd_SelectedDateChanged"/>
                 <Label x:Name="label3" Content="Aktuelle Meldungen" Margin="10,299,513,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="textBoxMessages" Height="65" Margin="10,330,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False"/>
+                <TextBox x:Name="textBoxMessages" IsReadOnly="True" Height="65" Margin="10,330,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False"/>
                 <Button x:Name="buttonSave" Content="Speichern" Margin="10,0,603,10" Height="25" VerticalAlignment="Bottom" IsEnabled="False"/>
                 <Label x:Name="label4" Content="Status" HorizontalAlignment="Left" Margin="450,6,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label5" Content="" HorizontalAlignment="Left" Margin="508,6,0,0" VerticalAlignment="Top" Width="85"/>
