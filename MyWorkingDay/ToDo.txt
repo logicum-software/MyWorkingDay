@@ -1,5 +1,6 @@
 ﻿
 
 
+20190827 09:44 -> Neues Projekt fertigstellen
 
-20190827 09:34 - MainWindow.xaml.cs Initialisierung der Date Picker korrigieren
+20190827 09:34 -> MainWindow.xaml.cs Initialisierung der Date Picker korrigieren - Erledigt
