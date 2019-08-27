@@ -14,11 +14,11 @@
             <DatePicker Margin="10,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="164" MinWidth="164"/>
             <Label x:Name="label2" Content="Geplantes Ende" Margin="233,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
             <DatePicker Margin="233,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" MinWidth="160"/>
-            <Label x:Name="label3" Content="Projektaufgaben" Margin="10,130,323,0" VerticalAlignment="Top"/>
+            <Label x:Name="label3" Content="Projektaufgaben" Margin="10,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101"/>
             <ListBox x:Name="listBox" Height="120" Margin="10,156,10,0" VerticalAlignment="Top"/>
-            <Button x:Name="buttonNewTask" Content="Neu" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button x:Name="buttonDelTask" Content="Löschen" HorizontalAlignment="Left" Margin="99,281,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button x:Name="buttonSave" Content="Speichern" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom"/>
+            <Button x:Name="buttonNewTask" Content="Hinzufügen" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="101"/>
+            <Button x:Name="buttonDelTask" Content="Entfernen" HorizontalAlignment="Left" Margin="116,281,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+            <Button x:Name="buttonSave" Content="Speichern" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom" IsEnabled="False"/>
             <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
         </Grid>
 
