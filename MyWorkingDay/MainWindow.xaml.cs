@@ -136,8 +136,8 @@ namespace MyWorkingDay
                 dateEnd.IsEnabled = true;
                 textBoxName.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strName;
                 textBoxDescription.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription;
-                dateStart.DisplayDate = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart;
-                dateEnd.DisplayDate = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd;
+                dateStart.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart.ToString();
+                dateEnd.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd.ToString();
             }
             buttonSave.IsEnabled = false;
         }
