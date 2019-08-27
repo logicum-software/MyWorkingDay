@@ -19,7 +19,7 @@ namespace MyWorkingDay
             Projekte = new List<Projekt>();
         }
 
-        public Boolean delTask(String name)
+        internal Boolean delTask(String name)
         {
             foreach (Aufgabe item in Aufgaben)
             {
@@ -32,6 +32,16 @@ namespace MyWorkingDay
                     else
                         return false;
                 }
+            }
+            return false;
+        }
+
+        internal Boolean containsTask(String name)
+        {
+            foreach (Aufgabe item in Aufgaben)
+            {
+                if (item.strName.Equals(name))
+                    return true;
             }
             return false;
         }

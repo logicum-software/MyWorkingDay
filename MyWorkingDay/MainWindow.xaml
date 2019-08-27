@@ -58,7 +58,7 @@
                 <DatePicker x:Name="dateEnd" Margin="393,265,130,0" VerticalAlignment="Top" IsEnabled="False" SelectedDateChanged="DateEnd_SelectedDateChanged"/>
                 <Label x:Name="label3" Content="Aktuelle Meldungen" Margin="10,299,513,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="textBoxMessages" IsReadOnly="True" Height="65" Margin="10,330,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False"/>
-                <Button x:Name="buttonSave" Content="Speichern" Margin="10,0,603,10" Height="25" VerticalAlignment="Bottom" IsEnabled="False"/>
+                <Button x:Name="buttonSave" Content="Speichern" Margin="10,0,603,10" Height="25" VerticalAlignment="Bottom" IsEnabled="False" Click="ButtonSave_Click"/>
                 <Label x:Name="label4" Content="Status" HorizontalAlignment="Left" Margin="450,6,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label5" Content="" HorizontalAlignment="Left" Margin="508,6,0,0" VerticalAlignment="Top" Width="85"/>
             </Grid>

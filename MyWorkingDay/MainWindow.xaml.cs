@@ -136,8 +136,8 @@ namespace MyWorkingDay
                 dateEnd.IsEnabled = true;
                 textBoxName.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strName;
                 textBoxDescription.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription;
-                dateStart.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart.ToString();
-                dateEnd.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd.ToString();
+                dateStart.DisplayDate = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart;
+                dateEnd.DisplayDate = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd;
             }
             buttonSave.IsEnabled = false;
         }
@@ -176,6 +176,27 @@ namespace MyWorkingDay
         {
             if (this.IsInitialized)
                 buttonSave.IsEnabled = true;
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (appData.containsTask(textBoxName.Text))
+            {
+                if (MessageBox.Show("Eine Aufgabe mit diesem Namen existiert bereits. Soll sie überschrieben werden?",
+                    "Aufgabe vorhanden", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+                else
+                {
+                    appData.Aufgaben[listBoxTasks.SelectedIndex].strName = textBoxName.Text;
+                    appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription = textBoxDescription.Text;
+                    appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart = dateStart.DisplayDate;
+                    appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd = dateEnd.DisplayDate;
+                    saveData();
+                    buttonSave.IsEnabled = false;
+                    MessageBox.Show("Die Änderungen wurden gespeichert.", "Änderungen gespeichert",
+                        MessageBoxButton.OK);
+                }
+            }
         }
     }
 }
