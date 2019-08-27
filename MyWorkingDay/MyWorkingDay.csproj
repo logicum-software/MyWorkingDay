@@ -114,5 +114,8 @@
   <ItemGroup>
     <Resource Include="green_check_small.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToDo.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
