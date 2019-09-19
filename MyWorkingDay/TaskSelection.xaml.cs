@@ -15,29 +15,18 @@ using System.Windows.Shapes;
 namespace MyWorkingDay
 {
     /// <summary>
-    /// Interaktionslogik für NewProject.xaml
+    /// Interaktionslogik für TaskSelection.xaml
     /// </summary>
-    public partial class NewProject : Window
+    public partial class TaskSelection : Window
     {
-        public NewProject()
+        public TaskSelection()
         {
             InitializeComponent();
-
-            textBoxName.SelectAll();
-            textBoxName.Focus();
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
             Close();
-        }
-
-        private void ButtonNewTask_Click(object sender, RoutedEventArgs e)
-        {
-            TaskSelection dlgSelection = new TaskSelection();
-
-            dlgSelection.ShowDialog();
         }
     }
 }
