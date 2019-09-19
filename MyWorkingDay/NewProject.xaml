@@ -9,7 +9,7 @@
     <Grid>
         <Grid>
             <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-            <TextBox x:Name="textBoxName" Margin="10,36,10,0" TextWrapping="Wrap" Text="Bitte hier den Namen des Projekts eingeben..." Height="23" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox x:Name="textBoxName" Margin="10,36,10,0" TextWrapping="Wrap" Text="Bitte hier den Namen des Projekts eingeben..." VerticalAlignment="Top" FontSize="16"/>
             <Label x:Name="label1" Content="Geplanter Start" Margin="10,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" FontSize="16"/>
             <DatePicker Margin="10,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="164" MinWidth="164" FontSize="16"/>
             <Label x:Name="label2" Content="Geplantes Ende" Margin="233,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" FontSize="16"/>
