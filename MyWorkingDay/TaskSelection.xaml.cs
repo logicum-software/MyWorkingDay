@@ -19,7 +19,7 @@ namespace MyWorkingDay
     /// </summary>
     public partial class TaskSelection : Window
     {
-        private List<Aufgabe> tmpAufgaben { get; set; }
+        internal List<Aufgabe> tmpAufgaben;
 
         public TaskSelection()
         {
@@ -30,7 +30,10 @@ namespace MyWorkingDay
 
         internal void setAufgaben(List<Aufgabe> tmpList)
         {
-            tmpAufgaben = tmpList;
+            foreach (Aufgabe item in tmpList)
+                tmpAufgaben.Add(item);
+
+            //tmpAufgaben = new List<Aufgabe>(tmpList);
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)

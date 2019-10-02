@@ -19,12 +19,22 @@ namespace MyWorkingDay
     /// </summary>
     public partial class NewProject : Window
     {
+        internal List<Aufgabe> tmpAufgaben;
+
         public NewProject()
         {
             InitializeComponent();
 
             textBoxName.SelectAll();
             textBoxName.Focus();
+        }
+
+        internal void setAufgaben(List<Aufgabe> tmpList)
+        {
+            foreach (Aufgabe item in tmpList)
+                tmpAufgaben.Add(item);
+
+            //tmpAufgaben = new List<Aufgabe>(tmpList);
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
@@ -36,6 +46,9 @@ namespace MyWorkingDay
         private void ButtonNewTask_Click(object sender, RoutedEventArgs e)
         {
             TaskSelection dlgSelection = new TaskSelection();
+
+            //dlgSelection.setAufgaben(tmpAufgaben);
+            dlgSelection.tmpAufgaben = new List<Aufgabe>(tmpAufgaben);
 
             dlgSelection.ShowDialog();
         }

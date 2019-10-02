@@ -146,6 +146,8 @@ namespace MyWorkingDay
         {
             NewProject dlgNewProject = new NewProject();
 
+            //dlgNewProject.setAufgaben(appData.Aufgaben);
+            dlgNewProject.tmpAufgaben = new List<Aufgabe>(appData.Aufgaben);
             dlgNewProject.ShowDialog();
         }
 
