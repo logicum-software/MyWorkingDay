@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWorkingDay"
         mc:Ignorable="d"
-        Title="Aufgaben auswählen" Height="385" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontSize="16">
+        Title="Aufgaben auswählen" Height="411" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontSize="16">
     <Grid>
         <Label x:Name="label" Content="Bitte wählen Sie die Aufgaben aus:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="16" Width="270"/>
-        <ListBox x:Name="listBoxSelectTask" Margin="10,36,10,81" FontSize="16"/>
-        <Button x:Name="buttonSelect" Content="Übernehmen" HorizontalAlignment="Left" Margin="10,0,0,10" Width="101" VerticalAlignment="Bottom" FontSize="16"/>
+        <ListBox x:Name="listBoxSelectTask" Margin="10,36,10,0" FontSize="16" Height="239" VerticalAlignment="Top">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding strName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="buttonSelect" Content="Übernehmen" HorizontalAlignment="Left" Margin="10,0,0,10" Width="101" VerticalAlignment="Bottom" FontSize="16" IsEnabled="False"/>
         <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" Click="ButtonCancel_Click" VerticalAlignment="Bottom" Width="101" HorizontalAlignment="Right" FontSize="16"/>
+        <Button x:Name="buttonTaskNew" Content="Neue Aufgabe" HorizontalAlignment="Left" Margin="10,280,0,0" Width="120" Height="25" VerticalAlignment="Top" Click="ButtonTaskNew_Click"/>
 
     </Grid>
 </Window>
