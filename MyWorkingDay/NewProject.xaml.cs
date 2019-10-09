@@ -46,10 +46,9 @@ namespace MyWorkingDay
         private void ButtonNewTask_Click(object sender, RoutedEventArgs e)
         {
             TaskSelection dlgSelection = new TaskSelection();
-
-            //dlgSelection.setAufgaben(tmpAufgaben);
+            
             dlgSelection.tmpAufgaben = new List<Aufgabe>(tmpAufgaben);
-
+            dlgSelection.listBoxSelectTask.ItemsSource = dlgSelection.tmpAufgaben;
             dlgSelection.ShowDialog();
         }
     }
