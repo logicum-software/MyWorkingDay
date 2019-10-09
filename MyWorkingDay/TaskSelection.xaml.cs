@@ -28,7 +28,7 @@ namespace MyWorkingDay
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            DialogResult = false;
         }
 
         private void ButtonTaskNew_Click(object sender, RoutedEventArgs e)
@@ -56,6 +56,19 @@ namespace MyWorkingDay
                 //saveData();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
             }
+        }
+
+        private void listBoxSelectTask_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (listBoxSelectTask.SelectedIndex > -1)
+                buttonSelect.IsEnabled = true;
+            else
+                buttonSelect.IsEnabled = false;
+        }
+
+        private void buttonSelect_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

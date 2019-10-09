@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:MyWorkingDay"
         mc:Ignorable="d"
         Title="Neues Projekt" Height="405.945" Width="440" MinWidth="440" MinHeight="385" WindowStartupLocation="CenterScreen">
-    <Grid>
         <Grid>
             <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
             <TextBox x:Name="textBoxName" Margin="10,36,10,0" TextWrapping="Wrap" Text="Bitte hier den Namen des Projekts eingeben..." VerticalAlignment="Top" FontSize="16"/>
@@ -15,12 +14,18 @@
             <Label x:Name="label2" Content="Geplantes Ende" Margin="233,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" FontSize="16"/>
             <DatePicker Margin="233,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" MinWidth="160" FontSize="16"/>
             <Label x:Name="label3" Content="Projektaufgaben" Margin="10,125,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" FontSize="16" RenderTransformOrigin="0.577,0"/>
-            <ListBox x:Name="listBox" Height="120" Margin="10,156,10,0" VerticalAlignment="Top"/>
+            <ListBox x:Name="listBox" Height="120" Margin="10,156,10,0" VerticalAlignment="Top">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding strName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <Button x:Name="buttonNewTask" Content="Hinzufügen" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="101" Click="ButtonNewTask_Click" FontSize="16"/>
             <Button x:Name="buttonDelTask" Content="Entfernen" HorizontalAlignment="Left" Margin="116,281,0,0" VerticalAlignment="Top" Width="101" IsEnabled="False" FontSize="16"/>
             <Button x:Name="buttonSave" Content="Speichern" HorizontalAlignment="Left" Margin="10,0,0,10" Width="101" VerticalAlignment="Bottom" IsEnabled="False" FontSize="16"/>
             <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" HorizontalAlignment="Right" Width="101" VerticalAlignment="Bottom" Click="ButtonCancel_Click" FontSize="16"/>
         </Grid>
-
-    </Grid>
 </Window>
