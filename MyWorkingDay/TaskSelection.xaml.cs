@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 
 namespace MyWorkingDay
@@ -9,21 +12,50 @@ namespace MyWorkingDay
     /// </summary>
     public partial class TaskSelection : Window
     {
-        internal List<Aufgabe> tmpAufgaben;
-
+        private AppData appData;
         public TaskSelection()
         {
             InitializeComponent();
 
-            //listBoxSelectTask.ItemsSource = tmpAufgaben;
+            appData = new AppData();
+
+            //Daten einlesen aus Datei "udata.dat"
+            IFormatter formatter = new BinaryFormatter();
+            try
+            {
+                Stream stream = new FileStream("udata.dat", FileMode.Open, FileAccess.Read, FileShare.Read);
+                appData = (AppData)formatter.Deserialize(stream);
+                stream.Close();
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
+                //throw;
+            }
+            
+            listBoxSelectTask.ItemsSource = appData.Aufgaben;
         }
 
-        internal void setAufgaben(List<Aufgabe> tmpList)
+    private void saveData()
         {
-            foreach (Aufgabe item in tmpList)
-                tmpAufgaben.Add(item);
+            FileStream fs = new FileStream("udata.dat", FileMode.Create);
 
-            //tmpAufgaben = new List<Aufgabe>(tmpList);
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, appData);
+            }
+            catch (SerializationException ec)
+            {
+                MessageBox.Show(ec.Message, "Speicherfehler", MessageBoxButton.OK);
+                //Console.WriteLine("Failed to serialize. Reason: " + ec.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
@@ -39,7 +71,7 @@ namespace MyWorkingDay
 
             if (dlgNewTask.DialogResult.HasValue && dlgNewTask.DialogResult.Value == true)
             {
-                foreach (Aufgabe item in tmpAufgaben)
+                foreach (Aufgabe item in appData.Aufgaben)
                 {
                     if (String.Compare(item.strName, dlgNewTask.textBoxName.Text, true) > -1 &&
                         String.Compare(item.strName, dlgNewTask.textBoxName.Text, true) < 1)
@@ -49,11 +81,11 @@ namespace MyWorkingDay
                         return;
                     }
                 }
-                /*appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
+                appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
                     dlgNewTask.datePickerStart.DisplayDate, dlgNewTask.datePickerEnd.DisplayDate, (Boolean)dlgNewTask.checkBox.IsChecked));
                 saveData();
-                listBoxTasks.Items.Refresh();*/
-                //saveData();
+                listBoxSelectTask.Items.Refresh();
+                saveData();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
             }
         }
