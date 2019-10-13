@@ -137,6 +137,7 @@ namespace MyWorkingDay
             NewProject dlgNewProject = new NewProject();
 
             dlgNewProject.ShowDialog();
+            listBoxProjects.Items.Refresh();
         }
 
         private void ButtonDelProject_Click(object sender, RoutedEventArgs e)

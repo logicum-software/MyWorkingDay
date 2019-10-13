@@ -16,6 +16,8 @@ namespace MyWorkingDay
         public DateTime dtStart { get; set; }
         public DateTime dtEnd { get; set; }
         public List<Aufgabe> Aufgaben { get; set; }
+        
+        //Status des Projekts: 0 = steht aus, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
         private int iStatus { get; set; }
 
         public Projekt()

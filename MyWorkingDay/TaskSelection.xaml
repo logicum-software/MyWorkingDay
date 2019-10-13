@@ -17,7 +17,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="buttonSelect" Content="Übernehmen" HorizontalAlignment="Left" Margin="10,0,0,10" Width="101" VerticalAlignment="Bottom" FontSize="16" IsEnabled="False" Click="buttonSelect_Click"/>
+        <Button x:Name="buttonSelect" Content="Übernehmen" HorizontalAlignment="Left" Margin="10,0,0,10" Width="120" VerticalAlignment="Bottom" FontSize="16" IsEnabled="False" Click="buttonSelect_Click"/>
         <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" Click="ButtonCancel_Click" VerticalAlignment="Bottom" Width="101" HorizontalAlignment="Right" FontSize="16"/>
         <Button x:Name="buttonTaskNew" Content="Neue Aufgabe" HorizontalAlignment="Left" Margin="10,280,0,0" Width="120" Height="25" VerticalAlignment="Top" Click="ButtonTaskNew_Click"/>
 

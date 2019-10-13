@@ -41,6 +41,7 @@ namespace MyWorkingDay
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
+            Close();
         }
     }
 }

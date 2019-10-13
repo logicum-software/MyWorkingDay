@@ -101,6 +101,7 @@ namespace MyWorkingDay
         private void buttonSelect_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
+            Close();
         }
     }
 }
