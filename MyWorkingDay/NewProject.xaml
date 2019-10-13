@@ -14,7 +14,7 @@
             <Label x:Name="label2" Content="Geplantes Ende" Margin="233,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" FontSize="16"/>
             <DatePicker Margin="233,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" MinWidth="160" FontSize="16"/>
             <Label x:Name="label3" Content="Projektaufgaben" Margin="10,125,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" FontSize="16" RenderTransformOrigin="0.577,0"/>
-            <ListBox x:Name="listBox" Height="120" Margin="10,156,10,0" VerticalAlignment="Top">
+            <ListBox x:Name="listBox" Height="120" Margin="10,156,10,0" VerticalAlignment="Top" FontSize="16">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

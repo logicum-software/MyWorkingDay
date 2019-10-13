@@ -13,7 +13,7 @@ namespace MyWorkingDay
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AppData appData;
+        internal AppData appData;
         public MainWindow()
         {
             InitializeComponent();
@@ -134,10 +134,8 @@ namespace MyWorkingDay
 
         private void ButtonProjectNew_Click(object sender, RoutedEventArgs e)
         {
-            NewProject dlgNewProject = new NewProject();
+            NewProject dlgNewProject = new NewProject(appData);
 
-            dlgNewProject.tmpAufgaben = new List<Aufgabe>(appData.Aufgaben);
-            dlgNewProject.listBox.ItemsSource = dlgNewProject.tmpAufgaben;
             dlgNewProject.ShowDialog();
         }
 

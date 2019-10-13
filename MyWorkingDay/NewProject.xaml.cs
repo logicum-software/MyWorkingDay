@@ -8,22 +8,14 @@ namespace MyWorkingDay
     /// </summary>
     public partial class NewProject : Window
     {
-        internal List<Aufgabe> tmpAufgaben;
-
-        public NewProject()
+        private AppData appData;
+        internal NewProject(AppData tmpAppData)
         {
             InitializeComponent();
 
             textBoxName.SelectAll();
             textBoxName.Focus();
-        }
-
-        internal void setAufgaben(List<Aufgabe> tmpList)
-        {
-            foreach (Aufgabe item in tmpList)
-                tmpAufgaben.Add(item);
-
-            //tmpAufgaben = new List<Aufgabe>(tmpList);
+            appData = new AppData(tmpAppData);
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
@@ -35,7 +27,7 @@ namespace MyWorkingDay
         {
             TaskSelection dlgSelection = new TaskSelection();
             
-            dlgSelection.tmpAufgaben = new List<Aufgabe>(tmpAufgaben);
+            dlgSelection.tmpAufgaben = new List<Aufgabe>(appData);
             dlgSelection.listBoxSelectTask.ItemsSource = dlgSelection.tmpAufgaben;
             dlgSelection.ShowDialog();
 
