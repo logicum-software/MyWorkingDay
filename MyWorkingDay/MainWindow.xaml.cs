@@ -20,6 +20,14 @@ namespace MyWorkingDay
 
             appData = new AppData();
 
+            LoadData();
+
+            listBoxTasks.ItemsSource = appData.Aufgaben;
+            listBoxProjects.ItemsSource = appData.Projekte;
+        }
+
+        private void LoadData()
+        {
             //Daten einlesen aus Datei "udata.dat"
             IFormatter formatter = new BinaryFormatter();
             try
@@ -33,12 +41,9 @@ namespace MyWorkingDay
                 MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
                 //throw;
             }
-
-            listBoxTasks.ItemsSource = appData.Aufgaben;
-            listBoxProjects.ItemsSource = appData.Projekte;
         }
 
-        private void saveData()
+        private void SaveData()
         {
             FileStream fs = new FileStream("udata.dat", FileMode.Create);
 
@@ -58,6 +63,12 @@ namespace MyWorkingDay
             {
                 fs.Close();
             }
+        }
+
+        private void RefreshListBoxes()
+        {
+            listBoxTasks.Items.Refresh();
+            listBoxProjects.Items.Refresh();
         }
 
         private void ButtonTaskNew_Click(object sender, RoutedEventArgs e)
@@ -80,9 +91,8 @@ namespace MyWorkingDay
                 }
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
                     dlgNewTask.datePickerStart.DisplayDate, dlgNewTask.datePickerEnd.DisplayDate, (Boolean)dlgNewTask.checkBox.IsChecked));
-                saveData();
-                listBoxTasks.Items.Refresh();
-                //saveData();
+                SaveData();
+                RefreshListBoxes();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
             }
         }
@@ -97,8 +107,8 @@ namespace MyWorkingDay
                 {
                     if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].strName))
                     {
-                        saveData();
-                        listBoxTasks.Items.Refresh();
+                        SaveData();
+                        RefreshListBoxes();
                         MessageBox.Show("Die Aufgabe wurde gelöscht.", "Aufgabe gelöscht", MessageBoxButton.OK);
                     }
                     else
@@ -137,7 +147,8 @@ namespace MyWorkingDay
             NewProject dlgNewProject = new NewProject();
 
             dlgNewProject.ShowDialog();
-            listBoxProjects.Items.Refresh();
+            LoadData();
+            RefreshListBoxes();
         }
 
         private void ButtonDelProject_Click(object sender, RoutedEventArgs e)
@@ -182,7 +193,7 @@ namespace MyWorkingDay
                     appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription = textBoxDescription.Text;
                     appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart = dateStart.DisplayDate;
                     appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd = dateEnd.DisplayDate;
-                    saveData();
+                    SaveData();
                     buttonSave.IsEnabled = false;
                     MessageBox.Show("Die Änderungen wurden gespeichert.", "Änderungen gespeichert",
                         MessageBoxButton.OK);

@@ -20,7 +20,14 @@ namespace MyWorkingDay
 
             appData = new AppData();
             tmpAufgaben = new List<Aufgabe>();
+            LoadData();
+            listBox.ItemsSource = tmpAufgaben;
+            textBoxName.SelectAll();
+            textBoxName.Focus();
+        }
 
+        private void LoadData()
+        {
             //Daten einlesen aus Datei "udata.dat"
             IFormatter formatter = new BinaryFormatter();
             try
@@ -34,12 +41,9 @@ namespace MyWorkingDay
                 MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
                 //throw;
             }
-            listBox.ItemsSource = tmpAufgaben;
-            textBoxName.SelectAll();
-            textBoxName.Focus();
         }
 
-        private void saveData()
+        private void SaveData()
         {
             FileStream fs = new FileStream("udata.dat", FileMode.Create);
 
@@ -73,6 +77,7 @@ namespace MyWorkingDay
             dlgSelection.ShowDialog();
             if (dlgSelection.DialogResult == true)
             {
+                LoadData();
                 // muss noch geändert werden für neu erstellte Aufgaben
                 tmpAufgaben.Add(appData.Aufgaben[dlgSelection.listBoxSelectTask.SelectedIndex]);
                 listBox.Items.Refresh();
@@ -98,7 +103,7 @@ namespace MyWorkingDay
             foreach (Aufgabe item in tmpAufgaben)
                 appData.Projekte[appData.Projekte.Count - 1].Aufgaben.Add(item);
 
-            saveData();
+            SaveData();
             MessageBox.Show("Das Projekt wurde gespeichert.", "Aufgabe gespeichert", MessageBoxButton.OK);
         }
 
