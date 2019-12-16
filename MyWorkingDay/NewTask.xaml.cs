@@ -55,12 +55,9 @@ namespace MyWorkingDay
                     textBoxName.Focus();
                     return;
                 }
-                else
-                {
-                    DialogResult = true;
-                    Close();
-                }
             }
+            DialogResult = true;
+            Close();
         }
     }
 }

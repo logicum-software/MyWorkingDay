@@ -147,9 +147,9 @@ namespace MyWorkingDay
             {
                 appData.Projekte.Add(dlgNewProject.GetProjekt());
                 SaveData();
+                RefreshListBoxes();
                 MessageBox.Show("Das Projekt wurde gespeichert", "Projekt gespeichert", MessageBoxButton.OK);
             }
-            RefreshListBoxes();
         }
 
         private void ButtonDelProject_Click(object sender, RoutedEventArgs e)

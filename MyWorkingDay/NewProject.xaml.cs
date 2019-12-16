@@ -69,12 +69,9 @@ namespace MyWorkingDay
                     textBoxName.Focus();
                     return;
                 }
-                else
-                {
-                    DialogResult = true;
-                    Close();
-                }
             }
+            DialogResult = true;
+            Close();
         }
 
         private void textBoxName_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
