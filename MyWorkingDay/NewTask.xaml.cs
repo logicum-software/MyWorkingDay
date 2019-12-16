@@ -19,9 +19,13 @@ namespace MyWorkingDay
     /// </summary>
     public partial class NewTask : Window
     {
+        internal List<Aufgabe> taskList;
         public NewTask()
         {
             InitializeComponent();
+
+            if (taskList == null)
+                taskList = new List<Aufgabe>();
 
             textBoxName.SelectAll();
             textBoxName.Focus();
@@ -40,8 +44,23 @@ namespace MyWorkingDay
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
-            Close();
+            foreach (Aufgabe item in taskList)
+            {
+                if (String.Compare(item.strName, textBoxName.Text, true) > -1 &&
+                    String.Compare(item.strName, textBoxName.Text, true) < 1)
+                {
+                    MessageBox.Show("Eine Aufgabe mit dem Namen " + textBoxName.Text +
+                        " existiert bereits.\n\nBitte wählen Sie einen anderen Namen.", "Aufgabe vorhanden", MessageBoxButton.OK);
+                    textBoxName.SelectAll();
+                    textBoxName.Focus();
+                    return;
+                }
+                else
+                {
+                    DialogResult = true;
+                    Close();
+                }
+            }
         }
     }
 }

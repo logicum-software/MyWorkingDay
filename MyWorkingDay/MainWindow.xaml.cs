@@ -75,20 +75,12 @@ namespace MyWorkingDay
         {
             NewTask dlgNewTask = new NewTask();
 
+            dlgNewTask.taskList = appData.Aufgaben;
+
             dlgNewTask.ShowDialog();
 
             if (dlgNewTask.DialogResult.HasValue && dlgNewTask.DialogResult.Value == true)
             {
-                foreach (Aufgabe item in appData.Aufgaben)
-                {
-                    if (String.Compare(item.strName, dlgNewTask.textBoxName.Text, true) > -1 &&
-                        String.Compare(item.strName, dlgNewTask.textBoxName.Text, true) < 1)
-                    {
-                        MessageBox.Show("Eine Aufgabe mit dem Namen " + dlgNewTask.textBoxName.Text + 
-                            " existiert bereits.\n\nBitte wählen Sie einen anderen Namen.", "Aufgabe vorhanden", MessageBoxButton.OK);
-                        return;
-                    }
-                }
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
                     dlgNewTask.datePickerStart.DisplayDate, dlgNewTask.datePickerEnd.DisplayDate, (Boolean)dlgNewTask.checkBox.IsChecked));
                 SaveData();
@@ -146,8 +138,17 @@ namespace MyWorkingDay
         {
             NewProject dlgNewProject = new NewProject();
 
+            dlgNewProject.AllTasksList = new List<Aufgabe>(appData.Aufgaben);
+            dlgNewProject.ProjectsList = new List<Projekt>(appData.Projekte);
+
             dlgNewProject.ShowDialog();
-            LoadData();
+            
+            if (dlgNewProject.DialogResult.HasValue && dlgNewProject.DialogResult.Value == true)
+            {
+                appData.Projekte.Add(dlgNewProject.GetProjekt());
+                SaveData();
+                MessageBox.Show("Das Projekt wurde gespeichert", "Projekt gespeichert", MessageBoxButton.OK);
+            }
             RefreshListBoxes();
         }
 

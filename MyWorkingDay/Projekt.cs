@@ -32,7 +32,8 @@ namespace MyWorkingDay
             Aufgaben = new List<Aufgabe>();
         }
 
-        public Projekt(String name, String description, DateTime plannedStart, DateTime plannedEnd, Boolean bStarten)
+        public Projekt(String name, String description, DateTime plannedStart, DateTime plannedEnd,
+            List<Aufgabe> aufgaben, Boolean bStarten)
         {
             strName = name;
             strDescription = description;
@@ -40,7 +41,7 @@ namespace MyWorkingDay
             dtPlannedEnd = plannedEnd;
             dtStart = new DateTime(1970, 1, 1);
             dtEnd = new DateTime(1970, 1, 1);
-            Aufgaben = new List<Aufgabe>();
+            Aufgaben = new List<Aufgabe>(aufgaben);
 
             if (bStarten)
                 iStatus = 1;
