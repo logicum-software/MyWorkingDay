@@ -21,11 +21,12 @@ namespace MyWorkingDay
 
         public Aufgabe()
         {
+            // Constructs a task and starts it immediately
             strName = "";
             strDescription = "";
             dtPlannedStart = DateTime.Now;
             dtPlannedEnd = DateTime.Now.AddDays(7);
-            dtStart = new DateTime(1970, 1, 1);
+            dtStart = DateTime.Now;
             dtEnd = new DateTime(1970, 1, 1);
             iStatus = 0;
         }
@@ -34,15 +35,20 @@ namespace MyWorkingDay
         {
             strName = name;
             strDescription = description;
-            dtPlannedStart = plannedStart;
             dtPlannedEnd = plannedEnd;
             dtStart = new DateTime(1970, 1, 1);
             dtEnd = new DateTime(1970, 1, 1);
 
             if (bStarten)
+            {
+                dtPlannedStart = DateTime.Now;
                 iStatus = 1;
+            }
             else
+            {
+                dtPlannedStart = plannedStart;
                 iStatus = 0;
+            }
         }
     }
 }
