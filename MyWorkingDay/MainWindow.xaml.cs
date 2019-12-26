@@ -114,24 +114,11 @@ namespace MyWorkingDay
             if (listBoxTasks.SelectedItem == null)
             {
                 buttonDelTask.IsEnabled = false;
-                textBoxName.IsEnabled = false;
-                textBoxDescription.IsEnabled = false;
-                dateStart.IsEnabled = false;
-                dateEnd.IsEnabled = false;
             }
             else
             {
                 buttonDelTask.IsEnabled = true;
-                textBoxName.IsEnabled = true;
-                textBoxDescription.IsEnabled = true;
-                dateStart.IsEnabled = true;
-                dateEnd.IsEnabled = true;
-                textBoxName.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strName;
-                textBoxDescription.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription;
-                dateStart.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart.ToString();
-                dateEnd.Text = appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd.ToString();
             }
-            buttonSave.IsEnabled = false;
         }
 
         private void ButtonProjectNew_Click(object sender, RoutedEventArgs e)
@@ -155,51 +142,6 @@ namespace MyWorkingDay
         private void ButtonDelProject_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void TextBoxName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (this.IsInitialized && textBoxName.IsFocused)
-                buttonSave.IsEnabled = true;
-        }
-
-        private void TextBoxDescription_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (this.IsInitialized && textBoxDescription.IsFocused)
-                buttonSave.IsEnabled = true;
-        }
-
-        private void DateStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (this.IsInitialized)
-                buttonSave.IsEnabled = true;
-        }
-
-        private void DateEnd_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (this.IsInitialized)
-                buttonSave.IsEnabled = true;
-        }
-
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-        {
-            if (appData.containsTask(textBoxName.Text))
-            {
-                if (MessageBox.Show("Eine Aufgabe mit diesem Namen existiert bereits. Soll sie überschrieben werden?",
-                    "Aufgabe vorhanden", MessageBoxButton.YesNo) == MessageBoxResult.No)
-                    return;
-                else
-                {
-                    appData.Aufgaben[listBoxTasks.SelectedIndex].strName = textBoxName.Text;
-                    appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription = textBoxDescription.Text;
-                    appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart = dateStart.DisplayDate;
-                    appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd = dateEnd.DisplayDate;
-                    SaveData();
-                    buttonSave.IsEnabled = false;
-                    MessageBox.Show("Die Änderungen wurden gespeichert.", "Änderungen gespeichert",
-                        MessageBoxButton.OK);
-                }
-            }
         }
     }
 }
