@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Meilenstein.cs" />
     <Compile Include="TaskSelection.xaml.cs">
       <DependentUpon>TaskSelection.xaml</DependentUpon>
     </Compile>

@@ -1,6 +1,6 @@
 ﻿
-20191015 15:05 -> ListBoxProjects nach Speichern aktualisieren
+20191229 12:43 -> Neues Projekt Dialog redesign
 
-20190827 09:44 -> Neues Projekt fertigstellen
+20191229 12:44 -> Klasse Meilenstein erstellen
 
 20190827 09:34 -> MainWindow.xaml.cs Initialisierung der Date Picker korrigieren - Erledigt

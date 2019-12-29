@@ -132,10 +132,10 @@ namespace MyWorkingDay
             
             if (dlgNewProject.DialogResult.HasValue && dlgNewProject.DialogResult.Value == true)
             {
-                appData.Projekte.Add(dlgNewProject.GetProjekt());
+                /*appData.Projekte.Add(dlgNewProject.GetProjekt());
                 SaveData();
                 RefreshListBoxes();
-                MessageBox.Show("Das Projekt wurde gespeichert", "Projekt gespeichert", MessageBoxButton.OK);
+                MessageBox.Show("Das Projekt wurde gespeichert", "Projekt gespeichert", MessageBoxButton.OK);*/
             }
         }
 

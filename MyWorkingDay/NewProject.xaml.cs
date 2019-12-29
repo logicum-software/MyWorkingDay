@@ -32,11 +32,11 @@ namespace MyWorkingDay
             textBoxName.Focus();
         }
 
-        internal Projekt GetProjekt()
+        /*internal Projekt GetProjekt()
         {
             return new Projekt(textBoxName.Text, textBoxDescription.Text, datePickerStart.DisplayDate,
                 datePickerEnd.DisplayDate, ProjectTasksList, false); //false muss ersetzt werden durch IsChecked
-        }
+        }*/
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
