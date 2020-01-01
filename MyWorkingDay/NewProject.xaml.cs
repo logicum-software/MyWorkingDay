@@ -27,7 +27,7 @@ namespace MyWorkingDay
             if (ProjectsList == null)
                 ProjectsList = new List<Projekt>();
 
-            listBox.ItemsSource = ProjectTasksList;
+            listBoxTasks.ItemsSource = ProjectTasksList;
             textBoxName.SelectAll();
             textBoxName.Focus();
         }
@@ -52,7 +52,7 @@ namespace MyWorkingDay
             {
                 // muss noch geändert werden für neu erstellte Aufgaben
                 ProjectTasksList.Add(AllTasksList[dlgSelection.listBoxSelectTask.SelectedIndex]);
-                listBox.Items.Refresh();
+                listBoxTasks.Items.Refresh();
             }
         }
 
