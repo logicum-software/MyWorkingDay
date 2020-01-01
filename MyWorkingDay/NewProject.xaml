@@ -40,7 +40,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="buttonNewMilestone" Content="Hinzufügen" HorizontalAlignment="Left" Margin="10,511,0,0" VerticalAlignment="Top" Width="101" Click="ButtonNewTask_Click" FontSize="16"/>
+        <Button x:Name="buttonNewMilestone" Content="Hinzufügen" HorizontalAlignment="Left" Margin="10,511,0,0" VerticalAlignment="Top" Width="101" Click="buttonNewMilestone_Click" FontSize="16"/>
         <Button x:Name="buttonDelMilestone" Content="Entfernen" HorizontalAlignment="Left" Margin="116,511,0,0" VerticalAlignment="Top" Width="101" IsEnabled="False" FontSize="16"/>
     </Grid>
 </Window>

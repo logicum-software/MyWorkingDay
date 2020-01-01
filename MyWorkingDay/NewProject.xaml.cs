@@ -74,6 +74,13 @@ namespace MyWorkingDay
             Close();
         }
 
+        private void buttonNewMilestone_Click(object sender, RoutedEventArgs e)
+        {
+            NewMilestone dlgNewMilestone = new NewMilestone();
+
+            dlgNewMilestone.ShowDialog();
+        }
+
         private void textBoxName_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             if (IsInitialized)
