@@ -1,6 +1,9 @@
-﻿
+﻿20200113 21:28 -> Anpassung der Projektlaufzeit bei Über-/Unterschreitung durch Aufgaben
+
+20200113 21:26 -> Doppelte Speicherung neuer Aufgaben bei neuem Projekt beheben
+
 20191229 12:43 -> Neues Projekt Dialog redesign
 
-20191229 12:44 -> Klasse Meilenstein erstellen
+20191229 12:44 -> Klasse Meilenstein erstellen - Erledigt
 
 20190827 09:34 -> MainWindow.xaml.cs Initialisierung der Date Picker korrigieren - Erledigt

@@ -51,7 +51,12 @@ namespace MyWorkingDay
             if (dlgSelection.DialogResult == true)
             {
                 // muss noch geändert werden für neu erstellte Aufgaben
-                ProjectTasksList.Add(AllTasksList[dlgSelection.listBoxSelectTask.SelectedIndex]);
+                foreach (object item in dlgSelection.listBoxSelectTask.SelectedItems)
+                {
+                    ProjectTasksList.Add(AllTasksList[dlgSelection.listBoxSelectTask.Items.IndexOf(item)]);
+                }
+                
+                //ProjectTasksList.Add(AllTasksList[dlgSelection.listBoxSelectTask.SelectedIndex]);
                 listBoxTasks.Items.Refresh();
             }
         }

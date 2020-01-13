@@ -8,7 +8,7 @@
         Title="Aufgaben auswählen" Height="411" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontSize="16">
     <Grid>
         <Label x:Name="label" Content="Bitte wählen Sie die Aufgaben aus:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="16" Width="270"/>
-        <ListBox x:Name="listBoxSelectTask" Margin="10,36,10,0" FontSize="16" Height="239" VerticalAlignment="Top" SelectionChanged="listBoxSelectTask_SelectionChanged">
+        <ListBox x:Name="listBoxSelectTask" Margin="10,36,10,0" FontSize="16" Height="239" VerticalAlignment="Top" SelectionChanged="listBoxSelectTask_SelectionChanged" SelectionMode="Multiple">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
