@@ -50,5 +50,52 @@ namespace MyWorkingDay
                 iStatus = 0;
             }
         }
+
+        internal bool startTask()
+        {
+            if (iStatus == 0 | iStatus == 2)
+            {
+                iStatus = 1;
+                dtStart = DateTime.Now;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        internal bool completeTask()
+        {
+            if (iStatus == 1)
+            {
+                iStatus = 3;
+                dtEnd = DateTime.Now;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        internal bool cancelTask()
+        {
+            if (iStatus == 0 | iStatus == 1 | iStatus == 2)
+            {
+                iStatus = 4;
+                dtEnd = DateTime.Now;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        internal bool stopTask()
+        {
+            if (iStatus == 1)
+            {
+                iStatus = 2;
+                return true;
+            }
+            else
+                return false;
+        }
     }
 }
