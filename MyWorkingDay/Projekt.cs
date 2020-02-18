@@ -51,5 +51,52 @@ namespace MyWorkingDay
             else
                 iStatus = 0;
         }
+
+        internal bool startProject()
+        {
+            if (iStatus == 0 | iStatus == 2)
+            {
+                iStatus = 1;
+                dtStart = DateTime.Now;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        internal bool completeProject()
+        {
+            if (iStatus == 1)
+            {
+                iStatus = 3;
+                dtEnd = DateTime.Now;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        internal bool cancelProject()
+        {
+            if (iStatus == 0 | iStatus == 1 | iStatus == 2)
+            {
+                iStatus = 4;
+                dtEnd = DateTime.Now;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        internal bool stopProject()
+        {
+            if (iStatus == 1)
+            {
+                iStatus = 2;
+                return true;
+            }
+            else
+                return false;
+        }
     }
 }

@@ -5,9 +5,9 @@ using System.ComponentModel;
 namespace MyWorkingDay
 {
     [Serializable]
-    class AppData : System.ComponentModel.INotifyPropertyChanged
+    class AppData// : System.ComponentModel.INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
         public List<Aufgabe> Aufgaben { get; set; }
         public List<Projekt> Projekte { get; set; }
          
@@ -17,11 +17,11 @@ namespace MyWorkingDay
             Projekte = new List<Projekt>();
         }
 
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
+        /*protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, e);
-        }
+        }*/
 
         internal Boolean delTask(String name)
         {

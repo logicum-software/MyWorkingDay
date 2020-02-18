@@ -42,5 +42,11 @@ namespace MyWorkingDay
 
             Aufgaben = new List<Aufgabe>(aufgaben);
         }
+
+        internal void setAchieved()
+        {
+            dtAchieved = DateTime.Now;
+            bAchieved = true;
+        }
     }
 }
