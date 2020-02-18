@@ -85,7 +85,6 @@ namespace MyWorkingDay
                     dlgNewTask.datePickerStart.DisplayDate, dlgNewTask.datePickerEnd.DisplayDate, (Boolean)dlgNewTask.checkBox.IsChecked));
                 saveData();
                 listBoxSelectTask.Items.Refresh();
-                saveData();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
             }
         }

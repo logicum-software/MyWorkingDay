@@ -12,31 +12,67 @@ namespace MyWorkingDay
     /// </summary>
     public partial class NewProject : Window
     {
-        internal List<Aufgabe> ProjectTasksList, AllTasksList;
-        internal List<Projekt> ProjectsList;
+        internal List<Aufgabe> ProjectTasksList;
+        internal List<Meilenstein> MilestonesList;
+        private AppData appData;
+
         public NewProject()
         {
             InitializeComponent();
 
-            if (ProjectTasksList == null)
-                ProjectTasksList = new List<Aufgabe>();
-
-            if (AllTasksList == null)
-                AllTasksList = new List<Aufgabe>();
-
-            if (ProjectsList == null)
-                ProjectsList = new List<Projekt>();
+            LoadData();
+            ProjectTasksList = new List<Aufgabe>();
+            MilestonesList = new List<Meilenstein>();
 
             listBoxTasks.ItemsSource = ProjectTasksList;
             textBoxName.SelectAll();
             textBoxName.Focus();
         }
 
-        /*internal Projekt GetProjekt()
+        private void LoadData()
+        {
+            //Daten einlesen aus Datei "udata.dat"
+            IFormatter formatter = new BinaryFormatter();
+            try
+            {
+                Stream stream = new FileStream("udata.dat", FileMode.Open, FileAccess.Read, FileShare.Read);
+                appData = (AppData)formatter.Deserialize(stream);
+                stream.Close();
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
+                //throw;
+            }
+        }
+
+        private void SaveData()
+        {
+            FileStream fs = new FileStream("udata.dat", FileMode.Create);
+
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, appData);
+            }
+            catch (SerializationException ec)
+            {
+                MessageBox.Show(ec.Message, "Speicherfehler", MessageBoxButton.OK);
+                //Console.WriteLine("Failed to serialize. Reason: " + ec.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+
+        internal Projekt GetProjekt()
         {
             return new Projekt(textBoxName.Text, textBoxDescription.Text, datePickerStart.DisplayDate,
-                datePickerEnd.DisplayDate, ProjectTasksList, false); //false muss ersetzt werden durch IsChecked
-        }*/
+                datePickerEnd.DisplayDate, ProjectTasksList, MilestonesList, false); //false muss ersetzt werden durch IsChecked
+        }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -50,9 +86,10 @@ namespace MyWorkingDay
             dlgSelection.ShowDialog();
             if (dlgSelection.DialogResult == true)
             {
+                LoadData();
                 // muss noch geändert werden für neu erstellte Aufgaben
                 foreach (object item in dlgSelection.listBoxSelectTask.SelectedItems)
-                    ProjectTasksList.Add(AllTasksList[dlgSelection.listBoxSelectTask.Items.IndexOf(item)]);
+                    ProjectTasksList.Add(appData.Aufgaben[dlgSelection.listBoxSelectTask.Items.IndexOf(item)]);
                 
                 listBoxTasks.Items.Refresh();
             }
@@ -60,7 +97,7 @@ namespace MyWorkingDay
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Projekt item in ProjectsList)
+            foreach (Projekt item in appData.Projekte)
             {
                 if (String.Compare(item.strName, textBoxName.Text, true) > -1 &&
                     String.Compare(item.strName, textBoxName.Text, true) < 1)

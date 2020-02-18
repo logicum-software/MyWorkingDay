@@ -125,21 +125,24 @@ namespace MyWorkingDay
         {
             NewProject dlgNewProject = new NewProject();
 
-            dlgNewProject.AllTasksList = new List<Aufgabe>(appData.Aufgaben);
-            dlgNewProject.ProjectsList = new List<Projekt>(appData.Projekte);
-
             dlgNewProject.ShowDialog();
             
             if (dlgNewProject.DialogResult.HasValue && dlgNewProject.DialogResult.Value == true)
             {
-                /*appData.Projekte.Add(dlgNewProject.GetProjekt());
+                appData.Projekte.Add(dlgNewProject.GetProjekt());
                 SaveData();
+                LoadData();
                 RefreshListBoxes();
-                MessageBox.Show("Das Projekt wurde gespeichert", "Projekt gespeichert", MessageBoxButton.OK);*/
+                MessageBox.Show("Das Projekt wurde gespeichert", "Projekt gespeichert", MessageBoxButton.OK);
             }
         }
 
         private void ButtonDelProject_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void listBoxProjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
