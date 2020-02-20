@@ -34,7 +34,7 @@
         </GroupBox>
         <GroupBox x:Name="groupBox2" Header="Projekte" Margin="10,305,750,10" Grid.Row="1" FontSize="16">
             <Grid Margin="0">
-                <ListBox x:Name="listBoxProjects" Margin="10,10,10,0" Height="208" VerticalAlignment="Top" SelectionChanged="listBoxProjects_SelectionChanged">
+                <ListBox x:Name="listBoxProjects" Margin="10,10,10,43" SelectionChanged="listBoxProjects_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>

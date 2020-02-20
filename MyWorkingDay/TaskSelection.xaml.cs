@@ -18,7 +18,12 @@ namespace MyWorkingDay
             InitializeComponent();
 
             appData = new AppData();
+            LoadData();
+            listBoxSelectTask.ItemsSource = appData.Aufgaben;
+        }
 
+        private void LoadData()
+        {
             //Daten einlesen aus Datei "udata.dat"
             IFormatter formatter = new BinaryFormatter();
             try
@@ -32,11 +37,9 @@ namespace MyWorkingDay
                 MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
                 //throw;
             }
-            
-            listBoxSelectTask.ItemsSource = appData.Aufgaben;
         }
 
-    private void saveData()
+        private void SaveData()
         {
             FileStream fs = new FileStream("udata.dat", FileMode.Create);
 
@@ -67,11 +70,12 @@ namespace MyWorkingDay
         {
             NewTask dlgNewTask = new NewTask();
 
+            dlgNewTask.SetTaskList(appData.Aufgaben);
             dlgNewTask.ShowDialog();
 
             if (dlgNewTask.DialogResult.HasValue && dlgNewTask.DialogResult.Value == true)
             {
-                foreach (Aufgabe item in appData.Aufgaben)
+                /*foreach (Aufgabe item in appData.Aufgaben)
                 {
                     if (String.Compare(item.strName, dlgNewTask.textBoxName.Text, true) > -1 &&
                         String.Compare(item.strName, dlgNewTask.textBoxName.Text, true) < 1)
@@ -80,10 +84,10 @@ namespace MyWorkingDay
                             " existiert bereits.\n\nBitte wählen Sie einen anderen Namen.", "Aufgabe vorhanden", MessageBoxButton.OK);
                         return;
                     }
-                }
+                }*/
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
                     dlgNewTask.datePickerStart.DisplayDate, dlgNewTask.datePickerEnd.DisplayDate, (Boolean)dlgNewTask.checkBox.IsChecked));
-                saveData();
+                SaveData();
                 listBoxSelectTask.Items.Refresh();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
             }

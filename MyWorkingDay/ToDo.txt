@@ -1,8 +1,12 @@
-﻿20200113 21:28 -> Anpassung der Projektlaufzeit bei Über-/Unterschreitung durch Aufgaben
+﻿20200220 08:24 -> Bereits zum Projekt hinzugefügte Aufgaben nicht mehr in TaskSelection anzeigen
 
-20200113 21:26 -> Doppelte Speicherung neuer Aufgaben bei neuem Projekt beheben
+20200220 08:14 -> NewTask Liste tasklist füllen - Erledigt
 
-20191229 12:43 -> Neues Projekt Dialog redesign
+20200113 21:28 -> Anpassung der Projektlaufzeit bei Über-/Unterschreitung durch Aufgaben
+
+20200113 21:26 -> Doppelte Speicherung neuer Aufgaben bei neuem Projekt beheben- Erledigt
+
+20191229 12:43 -> Neues Projekt Dialog redesign - 80%
 
 20191229 12:44 -> Klasse Meilenstein erstellen - Erledigt
 

@@ -75,7 +75,7 @@ namespace MyWorkingDay
         {
             NewTask dlgNewTask = new NewTask();
 
-            dlgNewTask.taskList = appData.Aufgaben;
+            dlgNewTask.SetTaskList(appData.Aufgaben);
 
             dlgNewTask.ShowDialog();
 

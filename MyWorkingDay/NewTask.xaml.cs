@@ -19,7 +19,7 @@ namespace MyWorkingDay
     /// </summary>
     public partial class NewTask : Window
     {
-        internal List<Aufgabe> taskList;
+        private List<Aufgabe> taskList;
         public NewTask()
         {
             InitializeComponent();
@@ -29,6 +29,11 @@ namespace MyWorkingDay
 
             textBoxName.SelectAll();
             textBoxName.Focus();
+        }
+
+        internal void SetTaskList(List<Aufgabe> tasks)
+        {
+            taskList = new List<Aufgabe>(tasks);
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
