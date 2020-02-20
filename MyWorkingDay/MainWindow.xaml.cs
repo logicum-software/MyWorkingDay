@@ -112,13 +112,9 @@ namespace MyWorkingDay
         private void ListBoxTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (listBoxTasks.SelectedItem == null)
-            {
                 buttonDelTask.IsEnabled = false;
-            }
             else
-            {
                 buttonDelTask.IsEnabled = true;
-            }
         }
 
         private void ButtonProjectNew_Click(object sender, RoutedEventArgs e)
@@ -139,12 +135,30 @@ namespace MyWorkingDay
 
         private void ButtonDelProject_Click(object sender, RoutedEventArgs e)
         {
-
+            if (listBoxProjects.SelectedItem != null)
+            {
+                if (MessageBox.Show("Möchten Sie das Projekt wirklich löschen?", "Projekt löschen", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+                else
+                {
+                    if (appData.delProject(appData.Projekte[listBoxProjects.SelectedIndex].strName))
+                    {
+                        SaveData();
+                        RefreshListBoxes();
+                        MessageBox.Show("Das Projekt wurde gelöscht.", "Projekt gelöscht", MessageBoxButton.OK);
+                    }
+                    else
+                        MessageBox.Show("Das Projekt konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);
+                }
+            }
         }
 
         private void listBoxProjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (listBoxProjects.SelectedItem == null)
+                buttonDelProject.IsEnabled = false;
+            else
+                buttonDelProject.IsEnabled = true;
         }
     }
 }
