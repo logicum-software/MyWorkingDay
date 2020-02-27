@@ -90,7 +90,7 @@ namespace MyWorkingDay
                 // muss noch geändert werden für neu erstellte Aufgaben
                 foreach (object item in dlgSelection.listBoxSelectTask.SelectedItems)
                     ProjectTasksList.Add(appData.Aufgaben[dlgSelection.listBoxSelectTask.Items.IndexOf(item)]);
-                
+
                 listBoxTasks.Items.Refresh();
             }
         }
