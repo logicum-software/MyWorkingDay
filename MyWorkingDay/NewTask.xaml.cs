@@ -31,6 +31,15 @@ namespace MyWorkingDay
             textBoxName.Focus();
         }
 
+        public NewTask(String name, String description, DateTime start, DateTime end, Boolean started)
+        {
+            textBoxName.Text = name;
+            textBoxDescription.Text = description;
+            datePickerStart.SelectedDate = start;
+            datePickerEnd.SelectedDate = end;
+            checkBox.IsChecked = started;
+        }
+
         internal void SetTaskList(List<Aufgabe> tasks)
         {
             taskList = new List<Aufgabe>(tasks);
