@@ -31,15 +31,6 @@ namespace MyWorkingDay
             textBoxName.Focus();
         }
 
-        public NewTask(String name, String description, DateTime start, DateTime end, Boolean started)
-        {
-            textBoxName.Text = name;
-            textBoxDescription.Text = description;
-            datePickerStart.SelectedDate = start;
-            datePickerEnd.SelectedDate = end;
-            checkBox.IsChecked = started;
-        }
-
         internal void setName(String name)
         {
             textBoxName.Text = name;
@@ -99,6 +90,11 @@ namespace MyWorkingDay
             }
             DialogResult = true;
             Close();
+        }
+
+        private void textBoxName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -8,12 +8,12 @@
         Title="Neue Aufgabe" Height="385.333" Width="434.667" WindowStartupLocation="CenterScreen" FontSize="16">
     <Grid>
         <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="textBoxName" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" Text="Bitte hier den Namen der Aufgabe eingeben..." VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="textBoxName" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" Text="Bitte hier den Namen der Aufgabe eingeben..." VerticalAlignment="Top" FontSize="16" TextChanged="textBoxName_TextChanged"/>
         <Label x:Name="label1" Content="Beschreibung" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="textBoxDescription" Margin="10,101,10,0" TextWrapping="Wrap" Text="Hier die Beschreibung eingeben..." Height="94" VerticalAlignment="Top" GotFocus="TextBoxDescription_GotFocus" FontSize="16"/>
         <Label x:Name="label2" Content="Geplanter Start" Margin="10,200,282,0" Height="31" VerticalAlignment="Top" FontSize="16"/>
         <DatePicker x:Name="datePickerStart" Margin="10,231,0,0" Height="29" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="170"/>
-        <Button x:Name="buttonSave" Content="Speichern" Margin="10,0,0,10" Click="ButtonSave_Click" FontSize="16" HorizontalAlignment="Left" Width="90" Height="29" VerticalAlignment="Bottom"/>
+        <Button x:Name="buttonSave" Content="Speichern" Margin="10,0,0,10" Click="ButtonSave_Click" FontSize="16" HorizontalAlignment="Left" Width="90" Height="29" VerticalAlignment="Bottom" IsEnabled="False"/>
         <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" Height="29" VerticalAlignment="Bottom" Click="ButtonCancel_Click" FontSize="16" HorizontalAlignment="Right" Width="102"/>
         <Label x:Name="label3" Content="Geplanter Abschluss" Margin="215,200,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="170"/>
         <DatePicker x:Name="datePickerEnd" Margin="215,231,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="170"/>

@@ -1,4 +1,6 @@
-﻿20200227 11:05 -> Projekte per Doppelklick bearbeiten
+﻿20200227 12:04 -> TextChanged-Event in NewTask
+
+20200227 11:05 -> Projekte per Doppelklick bearbeiten
 
 20200227 11:05 -> Tasks per Doppelklick bearbeiten
 
