@@ -1,8 +1,10 @@
-﻿20200227 12:04 -> TextChanged-Event in NewTask
+﻿20200227 15:56 -> Datum inkonsistent beim Editieren von Aufgaben
+
+20200227 12:04 -> TextChanged-Event in NewTask -> Erledigt 20200227 15:56
 
 20200227 11:05 -> Projekte per Doppelklick bearbeiten
 
-20200227 11:05 -> Tasks per Doppelklick bearbeiten
+20200227 11:05 -> Tasks per Doppelklick bearbeiten -> Erledigt 20200227 15:56
 
 20200222 12:42 -> Aktualisieren von listBoxTasks in MainWindow nach Erstellen von Projekten
 
