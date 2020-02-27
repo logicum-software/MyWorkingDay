@@ -163,7 +163,20 @@ namespace MyWorkingDay
 
         private void listBoxTasks_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            MessageBox.Show(appData.Aufgaben[listBoxTasks.SelectedIndex].strName, "Doppelklick auf...", MessageBoxButton.OK);
+            NewTask dlgEditTask = new NewTask();
+
+            dlgEditTask.setName(appData.Aufgaben[listBoxTasks.SelectedIndex].strName);
+            dlgEditTask.setDescription(appData.Aufgaben[listBoxTasks.SelectedIndex].strDescription);
+            dlgEditTask.setPlannedStart(appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart);
+            dlgEditTask.setPlannedEnd(appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd);
+            dlgEditTask.setIsStarted(false);
+            
+            
+            dlgEditTask.SetTaskList(appData.Aufgaben);
+            dlgEditTask.Title = "Aufgabe bearbeiten";
+
+            dlgEditTask.ShowDialog();
+            //MessageBox.Show(appData.Aufgaben[listBoxTasks.SelectedIndex].strName, "Doppelklick auf...", MessageBoxButton.OK);
         }
 
         private void listBoxProjects_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)

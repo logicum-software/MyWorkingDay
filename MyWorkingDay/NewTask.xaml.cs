@@ -40,6 +40,33 @@ namespace MyWorkingDay
             checkBox.IsChecked = started;
         }
 
+        internal void setName(String name)
+        {
+            textBoxName.Text = name;
+        }
+
+        internal void setDescription(String description)
+        {
+            textBoxDescription.Text = description;
+        }
+
+        internal void setPlannedStart(DateTime plannedStart)
+        {
+            datePickerStart.SelectedDate = plannedStart;
+        }
+
+        internal void setPlannedEnd(DateTime plannedEnd)
+        {
+            datePickerEnd.SelectedDate = plannedEnd;
+        }
+
+        internal void setIsStarted(Boolean isStarted)
+        {
+            checkBox.IsChecked = isStarted;
+        }
+
+
+
         internal void SetTaskList(List<Aufgabe> tasks)
         {
             taskList = new List<Aufgabe>(tasks);
