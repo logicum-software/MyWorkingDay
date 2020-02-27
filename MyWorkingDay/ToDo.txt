@@ -1,6 +1,10 @@
-﻿20200222 12:42 -> Aktualisieren von listBoxTasks in MainWindow nach Erstellen von Projekten
+﻿20200227 11:05 -> Projekte per Doppelklick bearbeiten
 
-20200220 08:24 -> Bereits zum Projekt hinzugefügte Aufgaben nicht mehr in TaskSelection anzeigen
+20200227 11:05 -> Tasks per Doppelklick bearbeiten
+
+20200222 12:42 -> Aktualisieren von listBoxTasks in MainWindow nach Erstellen von Projekten
+
+20200220 08:24 -> Bereits zum Projekt hinzugefügte Aufgaben nicht mehr in TaskSelection anzeigen - evtl später???
 
 20200220 08:14 -> NewTask Liste tasklist füllen - Erledigt
 

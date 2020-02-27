@@ -160,5 +160,15 @@ namespace MyWorkingDay
             else
                 buttonDelProject.IsEnabled = true;
         }
+
+        private void listBoxTasks_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            MessageBox.Show(appData.Aufgaben[listBoxTasks.SelectedIndex].strName, "Doppelklick auf...", MessageBoxButton.OK);
+        }
+
+        private void listBoxProjects_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            MessageBox.Show(appData.Projekte[listBoxProjects.SelectedIndex].strName, "Doppelklick auf...", MessageBoxButton.OK);
+        }
     }
 }
