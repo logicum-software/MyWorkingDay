@@ -56,8 +56,6 @@ namespace MyWorkingDay
             checkBox.IsChecked = isStarted;
         }
 
-
-
         internal void SetTaskList(List<Aufgabe> tasks)
         {
             taskList = new List<Aufgabe>(tasks);
@@ -81,11 +79,13 @@ namespace MyWorkingDay
                 if (String.Compare(item.strName, textBoxName.Text, true) > -1 &&
                     String.Compare(item.strName, textBoxName.Text, true) < 1)
                 {
-                    MessageBox.Show("Eine Aufgabe mit dem Namen " + textBoxName.Text +
-                        " existiert bereits.\n\nBitte wählen Sie einen anderen Namen.", "Aufgabe vorhanden", MessageBoxButton.OK);
-                    textBoxName.SelectAll();
-                    textBoxName.Focus();
-                    return;
+                    if (MessageBox.Show("Möchten Sie die Aufgabe " + textBoxName.Text +
+                        " wirklich ändern?", "Aufgabe ändern", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    {
+                        textBoxName.SelectAll();
+                        textBoxName.Focus();
+                        return;
+                    }
                 }
             }
             DialogResult = true;
@@ -94,7 +94,38 @@ namespace MyWorkingDay
 
         private void textBoxName_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (buttonSave != null)
+            {
+                if (!textBoxName.Text.Equals("") & !textBoxName.Text.Equals("Bitte hier den Namen der Aufgabe eingeben...") &
+                    !textBoxName.Text.StartsWith(" "))
+                    buttonSave.IsEnabled = true;
+                else
+                    buttonSave.IsEnabled = false;
+            }
+            //MessageBox.Show("Text geändert in:\n" + textBoxName.Text, "Aufgabe vorhanden", MessageBoxButton.OK);
+        }
 
+        private void textBoxDescription_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (buttonSave != null)
+            {
+                if (!textBoxDescription.Text.Equals("") & !textBoxDescription.Text.Equals("Hier die Beschreibung eingeben...") &
+                    !textBoxDescription.Text.StartsWith(" "))
+                    buttonSave.IsEnabled = true;
+                else
+                    buttonSave.IsEnabled = false;
+            }
+            //MessageBox.Show("Text geändert in:\n" + textBoxDescription.Text, "Aufgabe vorhanden", MessageBoxButton.OK);
+        }
+
+        private void datePickerStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show("Datum geändert in:\n" + datePickerStart.SelectedDate, "Datum geändert", MessageBoxButton.OK);
+        }
+
+        private void datePickerEnd_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show("Datum geändert in:\n" + datePickerEnd.SelectedDate, "Datum geändert", MessageBoxButton.OK);
         }
     }
 }

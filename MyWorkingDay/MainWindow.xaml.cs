@@ -83,10 +83,10 @@ namespace MyWorkingDay
             {
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
                     dlgNewTask.datePickerStart.DisplayDate, dlgNewTask.datePickerEnd.DisplayDate, (Boolean)dlgNewTask.checkBox.IsChecked));
-                SaveData();
-                RefreshListBoxes();
-                MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
             }
+            SaveData();
+            RefreshListBoxes();
+            MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
         }
 
         private void ButtonDelTask_Click(object sender, RoutedEventArgs e)
@@ -170,13 +170,39 @@ namespace MyWorkingDay
             dlgEditTask.setPlannedStart(appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart);
             dlgEditTask.setPlannedEnd(appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd);
             dlgEditTask.setIsStarted(false);
-            
-            
+
+
             dlgEditTask.SetTaskList(appData.Aufgaben);
             dlgEditTask.Title = "Aufgabe bearbeiten";
 
             dlgEditTask.ShowDialog();
-            //MessageBox.Show(appData.Aufgaben[listBoxTasks.SelectedIndex].strName, "Doppelklick auf...", MessageBoxButton.OK);
+
+            if (dlgEditTask.DialogResult.HasValue && dlgEditTask.DialogResult.Value == true)
+            {
+                if (appData.containsTask(dlgEditTask.textBoxName.Text))
+                {
+                    foreach (Aufgabe item in appData.Aufgaben)
+                    {
+                        if (item.strName.Equals(dlgEditTask.textBoxName.Text))
+                        {
+                            item.strDescription = dlgEditTask.textBoxDescription.Text;
+                            item.dtPlannedStart = dlgEditTask.datePickerStart.DisplayDate;
+                            item.dtPlannedEnd = dlgEditTask.datePickerEnd.DisplayDate;
+
+                            if ((Boolean)dlgEditTask.checkBox.IsChecked)
+                                item.iStatus = 1;
+                            else
+                                item.iStatus = 0;
+                        }
+                    }
+                }
+
+                SaveData();
+                RefreshListBoxes();
+                MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
+
+                //MessageBox.Show(appData.Aufgaben[listBoxTasks.SelectedIndex].strName, "Doppelklick auf...", MessageBoxButton.OK);
+            }
         }
 
         private void listBoxProjects_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
