@@ -82,7 +82,8 @@ namespace MyWorkingDay
             if (dlgNewTask.DialogResult.HasValue && dlgNewTask.DialogResult.Value == true)
             {
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
-                    dlgNewTask.datePickerStart.DisplayDate, dlgNewTask.datePickerEnd.DisplayDate, (Boolean)dlgNewTask.checkBox.IsChecked));
+                    (DateTime) dlgNewTask.datePickerStart.SelectedDate, (DateTime) dlgNewTask.datePickerEnd.SelectedDate,
+                    (Boolean)dlgNewTask.checkBox.IsChecked));
             }
             SaveData();
             RefreshListBoxes();
@@ -186,8 +187,8 @@ namespace MyWorkingDay
                         if (item.strName.Equals(dlgEditTask.textBoxName.Text))
                         {
                             item.strDescription = dlgEditTask.textBoxDescription.Text;
-                            item.dtPlannedStart = dlgEditTask.datePickerStart.DisplayDate;
-                            item.dtPlannedEnd = dlgEditTask.datePickerEnd.DisplayDate;
+                            item.dtPlannedStart = (DateTime) dlgEditTask.datePickerStart.SelectedDate;
+                            item.dtPlannedEnd = (DateTime) dlgEditTask.datePickerEnd.SelectedDate;
 
                             if ((Boolean)dlgEditTask.checkBox.IsChecked)
                                 item.iStatus = 1;
@@ -196,6 +197,8 @@ namespace MyWorkingDay
                         }
                     }
                 }
+                else
+                    MessageBox.Show("if contains wurde umgangen", "if umgangen", MessageBoxButton.OK);
 
                 SaveData();
                 RefreshListBoxes();

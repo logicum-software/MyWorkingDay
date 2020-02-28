@@ -1,4 +1,4 @@
-﻿20200227 15:56 -> Datum inkonsistent beim Editieren von Aufgaben
+﻿20200227 15:56 -> Datum inkonsistent beim Editieren von Aufgaben -> Erledigt 20200228 08:04 (SelectedDate statt DisplayDate)
 
 20200227 12:04 -> TextChanged-Event in NewTask -> Erledigt 20200227 15:56
 
