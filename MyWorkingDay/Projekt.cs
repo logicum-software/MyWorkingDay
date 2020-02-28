@@ -19,7 +19,7 @@ namespace MyWorkingDay
         public List<Meilenstein> Meilensteine { get; set; }
         
         //Status des Projekts: 0 = steht aus, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
-        private int iStatus { get; set; }
+        internal int iStatus { get; set; }
 
         public Projekt()
         {

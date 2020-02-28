@@ -21,8 +21,12 @@ namespace MyWorkingDay
             InitializeComponent();
 
             LoadData();
-            ProjectTasksList = new List<Aufgabe>();
-            MilestonesList = new List<Meilenstein>();
+
+            if (ProjectTasksList == null)
+                ProjectTasksList = new List<Aufgabe>();
+
+            if (MilestonesList == null)
+                MilestonesList = new List<Meilenstein>();
 
             listBoxTasks.ItemsSource = ProjectTasksList;
             textBoxName.SelectAll();
@@ -66,6 +70,36 @@ namespace MyWorkingDay
             {
                 fs.Close();
             }
+        }
+
+        internal void setName(String name)
+        {
+            textBoxName.Text = name;
+        }
+
+        internal void setDescription(String description)
+        {
+            textBoxDescription.Text = description;
+        }
+
+        internal void setPlannedStart(DateTime plannedStart)
+        {
+            datePickerStart.SelectedDate = plannedStart;
+        }
+
+        internal void setPlannedEnd(DateTime plannedEnd)
+        {
+            datePickerEnd.SelectedDate = plannedEnd;
+        }
+
+        internal void setIsStarted(Boolean isStarted)
+        {
+            checkBox.IsChecked = isStarted;
+        }
+
+        internal void setProjectTaskList(List<Aufgabe> aufgaben)
+        {
+            ProjectTasksList = new List<Aufgabe>(aufgaben);
         }
 
         internal Projekt GetProjekt()

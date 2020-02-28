@@ -17,7 +17,7 @@ namespace MyWorkingDay
         public DateTime dtEnd { get; set; }
         
         //Status der Augabe: 0 = steht aus, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
-        public int iStatus { get; set; }
+        internal int iStatus { get; set; }
 
         public Aufgabe()
         {

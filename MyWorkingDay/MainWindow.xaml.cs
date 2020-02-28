@@ -203,14 +203,51 @@ namespace MyWorkingDay
                 SaveData();
                 RefreshListBoxes();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
-
-                //MessageBox.Show(appData.Aufgaben[listBoxTasks.SelectedIndex].strName, "Doppelklick auf...", MessageBoxButton.OK);
             }
         }
 
         private void listBoxProjects_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            MessageBox.Show(appData.Projekte[listBoxProjects.SelectedIndex].strName, "Doppelklick auf...", MessageBoxButton.OK);
+            NewProject dlgEditProject = new NewProject();
+
+            dlgEditProject.setName(appData.Projekte[listBoxProjects.SelectedIndex].strName);
+            dlgEditProject.setDescription(appData.Projekte[listBoxProjects.SelectedIndex].strDescription);
+            dlgEditProject.setPlannedStart(appData.Projekte[listBoxProjects.SelectedIndex].dtPlannedStart);
+            dlgEditProject.setPlannedEnd(appData.Projekte[listBoxProjects.SelectedIndex].dtPlannedEnd);
+            dlgEditProject.setIsStarted(false);
+
+
+            dlgEditProject.setProjectTaskList(appData.Projekte[listBoxProjects.SelectedIndex].Aufgaben);
+            dlgEditProject.Title = "Projekt bearbeiten";
+
+            dlgEditProject.ShowDialog();
+
+            if (dlgEditProject.DialogResult.HasValue & dlgEditProject.DialogResult.Value == true)
+            {
+                if (appData.containsProject(dlgEditProject.textBoxName.Text))
+                {
+                    foreach (Projekt item in appData.Projekte)
+                    {
+                        if (item.strName.Equals(dlgEditProject.textBoxName.Text))
+                        {
+                            item.strDescription = dlgEditProject.textBoxDescription.Text;
+                            item.dtPlannedStart = (DateTime)dlgEditProject.datePickerStart.SelectedDate;
+                            item.dtPlannedEnd = (DateTime)dlgEditProject.datePickerEnd.SelectedDate;
+
+                            if ((Boolean)dlgEditProject.checkBox.IsChecked)
+                                item.iStatus = 1;
+                            else
+                                item.iStatus = 0;
+                        }
+                    }
+                }
+                else
+                    MessageBox.Show("if contains wurde umgangen", "if umgangen", MessageBoxButton.OK);
+
+                SaveData();
+                RefreshListBoxes();
+                MessageBox.Show("Das Projekt wurde gespeichert", "Projekt gespeichert", MessageBoxButton.OK);
+            }
         }
     }
 }
