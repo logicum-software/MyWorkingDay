@@ -136,11 +136,13 @@ namespace MyWorkingDay
                 if (String.Compare(item.strName, textBoxName.Text, true) > -1 &&
                     String.Compare(item.strName, textBoxName.Text, true) < 1)
                 {
-                    MessageBox.Show("Ein Projekt mit dem Namen " + textBoxName.Text +
-                        " existiert bereits.\n\nBitte wählen Sie einen anderen Namen.", "Projekt vorhanden", MessageBoxButton.OK);
-                    textBoxName.SelectAll();
-                    textBoxName.Focus();
-                    return;
+                    if (MessageBox.Show("Möchten sie das Projekt mit dem Namen " + textBoxName.Text +
+                        " wirklich überschreiben?", "Projekt überschreiben", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    {
+                        textBoxName.SelectAll();
+                        textBoxName.Focus();
+                        return;
+                    }
                 }
             }
             DialogResult = true;

@@ -1,4 +1,6 @@
-﻿20200228 08:40 -> Geändertes Projekt nicht prüfen ob vorhanden
+﻿20200228 08:56 -> NewProject/EditProject Aufgaben entfernen
+
+20200228 08:40 -> Geändertes Projekt nicht prüfen ob vorhanden
 
 20200227 15:56 -> Datum inkonsistent beim Editieren von Aufgaben -> Erledigt 20200228 08:04 (SelectedDate statt DisplayDate)
 
