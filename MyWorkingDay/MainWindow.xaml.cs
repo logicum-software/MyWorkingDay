@@ -233,6 +233,7 @@ namespace MyWorkingDay
                             item.strDescription = dlgEditProject.textBoxDescription.Text;
                             item.dtPlannedStart = (DateTime)dlgEditProject.datePickerStart.SelectedDate;
                             item.dtPlannedEnd = (DateTime)dlgEditProject.datePickerEnd.SelectedDate;
+                            item.Aufgaben = new List<Aufgabe>(dlgEditProject.getProjectTaskList());
 
                             if ((Boolean)dlgEditProject.checkBox.IsChecked)
                                 item.iStatus = 1;

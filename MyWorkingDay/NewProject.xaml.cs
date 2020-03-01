@@ -97,6 +97,11 @@ namespace MyWorkingDay
             checkBox.IsChecked = isStarted;
         }
 
+        internal List<Aufgabe> getProjectTaskList()
+        {
+            return ProjectTasksList;
+        }
+
         internal void setProjectTaskList(List<Aufgabe> aufgaben)
         {
             ProjectTasksList = new List<Aufgabe>(aufgaben);

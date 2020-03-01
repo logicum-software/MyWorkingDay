@@ -1,4 +1,4 @@
-﻿20200228 08:56 -> NewProject/EditProject Aufgaben entfernen
+﻿20200228 08:56 -> NewProject/EditProject Aufgaben entfernen/hinzufügen
 
 20200228 08:40 -> Geändertes Projekt nicht prüfen ob vorhanden
 
