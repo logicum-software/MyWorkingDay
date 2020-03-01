@@ -222,7 +222,7 @@ namespace MyWorkingDay
 
             dlgEditProject.ShowDialog();
 
-            if (dlgEditProject.DialogResult.HasValue & dlgEditProject.DialogResult.Value == true)
+            if (dlgEditProject.DialogResult.HasValue && dlgEditProject.DialogResult.Value == true)
             {
                 if (appData.containsProject(dlgEditProject.textBoxName.Text))
                 {

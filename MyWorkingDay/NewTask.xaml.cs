@@ -96,7 +96,7 @@ namespace MyWorkingDay
         {
             if (buttonSave != null)
             {
-                if (!textBoxName.Text.Equals("") & !textBoxName.Text.Equals("Bitte hier den Namen der Aufgabe eingeben...") &
+                if (!textBoxName.Text.Equals("") && !textBoxName.Text.Equals("Bitte hier den Namen der Aufgabe eingeben...") &&
                     !textBoxName.Text.StartsWith(" "))
                     buttonSave.IsEnabled = true;
                 else
@@ -109,7 +109,7 @@ namespace MyWorkingDay
         {
             if (buttonSave != null)
             {
-                if (!textBoxDescription.Text.Equals("") & !textBoxDescription.Text.Equals("Hier die Beschreibung eingeben...") &
+                if (!textBoxDescription.Text.Equals("") && !textBoxDescription.Text.Equals("Hier die Beschreibung eingeben...") &&
                     !textBoxDescription.Text.StartsWith(" "))
                     buttonSave.IsEnabled = true;
                 else
