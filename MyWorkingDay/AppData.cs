@@ -5,9 +5,8 @@ using System.ComponentModel;
 namespace MyWorkingDay
 {
     [Serializable]
-    class AppData// : System.ComponentModel.INotifyPropertyChanged
+    class AppData
     {
-        //public event PropertyChangedEventHandler PropertyChanged;
         public List<Aufgabe> Aufgaben { get; set; }
         public List<Projekt> Projekte { get; set; }
          
@@ -16,13 +15,7 @@ namespace MyWorkingDay
             Aufgaben = new List<Aufgabe>();
             Projekte = new List<Projekt>();
         }
-
-        /*protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
-        }*/
-
+        
         internal Boolean delTask(String name)
         {
             foreach (Aufgabe item in Aufgaben)

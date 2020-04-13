@@ -79,8 +79,8 @@ namespace MyWorkingDay
                 if (String.Compare(item.strName, textBoxName.Text, true) > -1 &&
                     String.Compare(item.strName, textBoxName.Text, true) < 1)
                 {
-                    if (MessageBox.Show("Möchten Sie die Aufgabe " + textBoxName.Text +
-                        " wirklich ändern?", "Aufgabe ändern", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    if (MessageBox.Show("Eine Aufgabe mit dem Namen " + textBoxName.Text +
+                        " existiert bereits. Möchten Sie diese ändern?", "Aufgabe ändern", MessageBoxButton.YesNo) == MessageBoxResult.No)
                     {
                         textBoxName.SelectAll();
                         textBoxName.Focus();
