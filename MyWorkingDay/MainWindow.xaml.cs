@@ -98,6 +98,7 @@ namespace MyWorkingDay
                     return;
                 else
                 {
+                    //MessageBox.Show(listBoxTasks.SelectedItem.ToString(), "Ausgewähle Aufgabe", MessageBoxButton.OK);
                     if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].strName))
                     {
                         SaveData();
