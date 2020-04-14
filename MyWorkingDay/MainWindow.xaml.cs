@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace MyWorkingDay
 {
@@ -14,6 +15,8 @@ namespace MyWorkingDay
     public partial class MainWindow : Window
     {
         private AppData appData;
+        private DispatcherTimer dispatcherTimer;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,6 +27,18 @@ namespace MyWorkingDay
 
             listBoxTasks.ItemsSource = appData.Aufgaben;
             listBoxProjects.ItemsSource = appData.Projekte;
+
+            //  DispatcherTimer setup
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            dispatcherTimer.Start();
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Timer ausgelöst.", "Timer", MessageBoxButton.OK);
+            //throw new NotImplementedException();
         }
 
         private void LoadData()
