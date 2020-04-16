@@ -15,6 +15,7 @@ namespace MyWorkingDay
     public partial class MainWindow : Window
     {
         private AppData appData;
+        private List<Aufgabe> dueTasks;
         private DispatcherTimer dispatcherTimer;
 
         public MainWindow()
@@ -25,8 +26,12 @@ namespace MyWorkingDay
 
             LoadData();
 
+            dueTasks = new List<Aufgabe>(appData.Aufgaben);
+            dueTasks.Sort((x, y) => DateTime.Compare(x.dtPlannedEnd, y.dtPlannedEnd));
+
             listBoxTasks.ItemsSource = appData.Aufgaben;
             listBoxProjects.ItemsSource = appData.Projekte;
+            listBoxDue.ItemsSource = dueTasks;
 
             //  DispatcherTimer setup
             dispatcherTimer = new DispatcherTimer();
@@ -37,7 +42,8 @@ namespace MyWorkingDay
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            MessageBox.Show("Timer ausgelöst.", "Timer", MessageBoxButton.OK);
+
+            //MessageBox.Show("Timer ausgelöst.", "Timer", MessageBoxButton.OK);
             //throw new NotImplementedException();
         }
 
