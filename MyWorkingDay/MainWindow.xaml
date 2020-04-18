@@ -53,7 +53,13 @@
                 <ListView x:Name="listViewDue" Margin="10">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn DisplayMemberBinding="{Binding strName}" Header="Name" Width="333"/>
+                            <GridViewColumn Header="Name" Width="333">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding strName}" Foreground="{Binding strColor}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                             <GridViewColumn DisplayMemberBinding="{Binding dtPlannedEnd}" Header="fällig am" Width="150"/>
                             <GridViewColumn Header="Projekt" Width="200"/>
                         </GridView>

@@ -15,6 +15,7 @@ namespace MyWorkingDay
         public DateTime dtPlannedEnd { get; set; }
         public DateTime dtStart { get; set; }
         public DateTime dtEnd { get; set; }
+        public String strColor { get; set; }
         
         //Status der Augabe: 0 = steht aus, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
         internal int iStatus { get; set; }
@@ -29,6 +30,11 @@ namespace MyWorkingDay
             dtStart = DateTime.Now;
             dtEnd = new DateTime(1970, 1, 1);
             iStatus = 0;
+
+            if (dtPlannedEnd <= DateTime.Now)
+                strColor = "Red";
+            else
+                strColor = "Black";
         }
 
         public Aufgabe(String name, String description, DateTime plannedStart, DateTime plannedEnd, Boolean bStarten)
@@ -49,6 +55,11 @@ namespace MyWorkingDay
                 dtPlannedStart = plannedStart;
                 iStatus = 0;
             }
+            
+            if (dtPlannedEnd <= DateTime.Now)
+                strColor = "Red";
+            else
+                strColor = "Black";
         }
 
         internal bool startTask()
