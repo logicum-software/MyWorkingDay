@@ -31,7 +31,7 @@ namespace MyWorkingDay
 
             listBoxTasks.ItemsSource = appData.Aufgaben;
             listBoxProjects.ItemsSource = appData.Projekte;
-            listBoxDue.ItemsSource = dueTasks;
+            listViewDue.ItemsSource = dueTasks;
 
             //  DispatcherTimer setup
             dispatcherTimer = new DispatcherTimer();
