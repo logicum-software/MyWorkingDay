@@ -1,1 +1,1 @@
-﻿20200414 09:35 -> Sortierung anlegen in timer_tick für Fälligkeit der Aufgaben
+﻿Image red setzen

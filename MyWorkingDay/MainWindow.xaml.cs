@@ -42,6 +42,26 @@ namespace MyWorkingDay
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            int iDueCount = 0;
+
+            foreach (Aufgabe item in appData.Aufgaben)
+            {
+                if (DateTime.Now >= item.dtPlannedEnd)
+                {
+                    item.strColor = "Red";
+                    iDueCount++;
+                }
+                else
+                    item.strColor = "Black";
+            }
+
+            if (iDueCount > 0)
+            {
+                labelStatus.Content = "Sie haben " + iDueCount.ToString() + " überfällige Aufgabe(n).";
+                // Picture setzen
+            }
+            else
+                labelStatus.Content = "Sie haben keine überfälligen Aufgaben:";
 
             //MessageBox.Show("Timer ausgelöst.", "Timer", MessageBoxButton.OK);
             //throw new NotImplementedException();
@@ -104,7 +124,7 @@ namespace MyWorkingDay
             {
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
                     (DateTime) dlgNewTask.datePickerStart.SelectedDate, (DateTime) dlgNewTask.datePickerEnd.SelectedDate,
-                    (Boolean)dlgNewTask.checkBox.IsChecked));
+                    (Boolean)dlgNewTask.checkBox.IsChecked, null));
                 SaveData();
                 RefreshListBoxes();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
