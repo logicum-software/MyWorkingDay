@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
 namespace MyWorkingDay
@@ -17,6 +19,8 @@ namespace MyWorkingDay
         private AppData appData;
         private List<Aufgabe> dueTasks;
         private DispatcherTimer dispatcherTimer;
+        private BitmapImage biGreen;
+        private BitmapImage biRed;
 
         public MainWindow()
         {
@@ -32,6 +36,20 @@ namespace MyWorkingDay
             listBoxTasks.ItemsSource = appData.Aufgaben;
             listBoxProjects.ItemsSource = appData.Projekte;
             listViewDue.ItemsSource = dueTasks;
+
+            // Initialize Status-Images
+            biGreen = new BitmapImage();
+            biGreen.BeginInit();
+            biGreen.UriSource = new Uri("green_check_small.jpg", UriKind.Relative);
+            biGreen.EndInit();
+
+            biRed = new BitmapImage();
+            biRed.BeginInit();
+            biRed.UriSource = new Uri("red_check_small.jpg", UriKind.Relative);
+            biRed.EndInit();
+
+            image.Stretch = Stretch.Fill;
+            image.Source = biGreen;
 
             //  DispatcherTimer setup
             dispatcherTimer = new DispatcherTimer();
@@ -58,10 +76,13 @@ namespace MyWorkingDay
             if (iDueCount > 0)
             {
                 labelStatus.Content = "Sie haben " + iDueCount.ToString() + " überfällige Aufgabe(n).";
-                // Picture setzen
+                image.Source = biRed;
             }
             else
+            {
                 labelStatus.Content = "Sie haben keine überfälligen Aufgaben:";
+                image.Source = biGreen;
+            }
 
             //MessageBox.Show("Timer ausgelöst.", "Timer", MessageBoxButton.OK);
             //throw new NotImplementedException();

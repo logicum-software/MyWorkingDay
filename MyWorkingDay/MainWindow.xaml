@@ -13,8 +13,8 @@
         </Grid.RowDefinitions>
         <GroupBox x:Name="groupBox" Header="Status" Height="100" Margin="273,0,10,0" VerticalAlignment="Top" FontSize="16" Grid.Row="1">
             <Grid Margin="0" RenderTransformOrigin="-0.17,0.11">
-                <Image x:Name="image" Height="52" Width="52" Margin="10,10,661,0" VerticalAlignment="Top" Source="green_check_small.jpg" Stretch="Fill"/>
-                <Label x:Name="labelStatus" Content="Sie haben keine überfälligen Aufgaben oder Projekte." Margin="85,22,38,10"/>
+                <Image x:Name="image" Width="52" Margin="0,10,637,10" Source="green_check_small.jpg" HorizontalAlignment="Right" RenderTransformOrigin="0.885,0.538"/>
+                <Label x:Name="labelStatus" Content="Sie haben keine überfälligen Aufgaben oder Projekte." Margin="0,22,38,10" HorizontalAlignment="Right" Width="554"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Aufgaben" Height="300" Margin="10,0,750,0" VerticalAlignment="Top" FontSize="16" Grid.Row="1">

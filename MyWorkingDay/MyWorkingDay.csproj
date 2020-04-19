@@ -127,10 +127,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="green_check_small.jpg" />
+    <Resource Include="ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ToDo.txt" />
+    <Resource Include="green_check_small.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="red_check_small.jpg" />
