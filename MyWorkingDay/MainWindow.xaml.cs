@@ -31,8 +31,7 @@ namespace MyWorkingDay
             LoadData();
 
             dueTasks = new List<Aufgabe>(appData.Aufgaben);
-            dueTasks.Sort((x, y) => DateTime.Compare(x.dtPlannedEnd, y.dtPlannedEnd));
-
+            
             listBoxTasks.ItemsSource = appData.Aufgaben;
             listBoxProjects.ItemsSource = appData.Projekte;
             listViewDue.ItemsSource = dueTasks;
@@ -84,6 +83,7 @@ namespace MyWorkingDay
                 image.Source = biGreen;
             }
 
+            RefreshListBoxes();
             //MessageBox.Show("Timer ausgelöst.", "Timer", MessageBoxButton.OK);
             //throw new NotImplementedException();
         }
@@ -131,6 +131,8 @@ namespace MyWorkingDay
         {
             listBoxTasks.Items.Refresh();
             listBoxProjects.Items.Refresh();
+            dueTasks.Sort((x, y) => DateTime.Compare(x.dtPlannedEnd, y.dtPlannedEnd));
+            listViewDue.Items.Refresh();
         }
 
         private void ButtonTaskNew_Click(object sender, RoutedEventArgs e)
