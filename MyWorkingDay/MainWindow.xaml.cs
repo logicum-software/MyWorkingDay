@@ -79,7 +79,7 @@ namespace MyWorkingDay
             }
             else
             {
-                labelStatus.Content = "Sie haben keine überfälligen Aufgaben:";
+                labelStatus.Content = "Sie haben keine überfälligen Aufgaben.";
                 image.Source = biGreen;
             }
 
