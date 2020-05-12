@@ -237,10 +237,9 @@ namespace MyWorkingDay
             dlgEditTask.setPlannedStart(appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedStart);
             dlgEditTask.setPlannedEnd(appData.Aufgaben[listBoxTasks.SelectedIndex].dtPlannedEnd);
             dlgEditTask.setIsStarted(false);
-
-
             dlgEditTask.SetTaskList(appData.Aufgaben);
             dlgEditTask.Title = "Aufgabe bearbeiten";
+            dlgEditTask.textBoxName.IsEnabled = false;
 
             dlgEditTask.ShowDialog();
 
@@ -286,6 +285,7 @@ namespace MyWorkingDay
 
             dlgEditProject.setProjectTaskList(appData.Projekte[listBoxProjects.SelectedIndex].Aufgaben);
             dlgEditProject.Title = "Projekt bearbeiten";
+            dlgEditProject.textBoxName.IsEnabled = false;
 
             dlgEditProject.ShowDialog();
 

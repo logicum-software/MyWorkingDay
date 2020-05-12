@@ -110,7 +110,7 @@ namespace MyWorkingDay
         internal Projekt GetProjekt()
         {
             return new Projekt(textBoxName.Text, textBoxDescription.Text, datePickerStart.DisplayDate,
-                datePickerEnd.DisplayDate, ProjectTasksList, MilestonesList, false); //false muss ersetzt werden durch IsChecked
+                datePickerEnd.DisplayDate, ProjectTasksList, MilestonesList, (bool) checkBox.IsChecked); //false muss ersetzt werden durch IsChecked
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
