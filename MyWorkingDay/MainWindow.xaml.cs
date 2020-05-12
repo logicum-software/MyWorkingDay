@@ -253,22 +253,23 @@ namespace MyWorkingDay
                         if (item.strName.Equals(dlgEditTask.textBoxName.Text))
                         {
                             item.strDescription = dlgEditTask.textBoxDescription.Text;
-                            item.dtPlannedStart = (DateTime) dlgEditTask.datePickerStart.SelectedDate;
-                            item.dtPlannedEnd = (DateTime) dlgEditTask.datePickerEnd.SelectedDate;
+                            item.dtPlannedStart = (DateTime)dlgEditTask.datePickerStart.SelectedDate;
+                            item.dtPlannedEnd = (DateTime)dlgEditTask.datePickerEnd.SelectedDate;
 
                             if ((Boolean)dlgEditTask.checkBox.IsChecked)
                                 item.iStatus = 1;
                             else
                                 item.iStatus = 0;
+                            
+                            SaveData();
+                            RefreshListBoxes();
+                            MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
                         }
                     }
                 }
                 else
-                    MessageBox.Show("if contains wurde umgangen", "if umgangen", MessageBoxButton.OK);
-
-                SaveData();
-                RefreshListBoxes();
-                MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
+                    MessageBox.Show("Der Aufgabenname kann nicht nachträglich geändert werden." +
+                        "Bitte erstellen Sie eine neue Aufgabe.", "Änderung nich tmöglich", MessageBoxButton.OK);
             }
         }
 
