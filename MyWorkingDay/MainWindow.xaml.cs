@@ -129,6 +129,8 @@ namespace MyWorkingDay
 
         private void RefreshListBoxes()
         {
+            dueTasks = new List<Aufgabe>(appData.Aufgaben);
+            listViewDue.ItemsSource = dueTasks;
             listBoxTasks.Items.Refresh();
             listBoxProjects.Items.Refresh();
             dueTasks.Sort((x, y) => DateTime.Compare(x.dtPlannedEnd, y.dtPlannedEnd));
