@@ -282,8 +282,14 @@ namespace MyWorkingDay
             dlgEditProject.setPlannedEnd(appData.Projekte[listBoxProjects.SelectedIndex].dtPlannedEnd);
             dlgEditProject.setIsStarted(false);
 
+            foreach (Aufgabe item in appData.Aufgaben)
+            {
+                if (item.strProject.Equals(appData.Projekte[listBoxProjects.SelectedIndex].strName))
+                {
+                    dlgEditProject.addProjectTask(item);
+                }
+            }
 
-            dlgEditProject.setProjectTaskList(appData.Projekte[listBoxProjects.SelectedIndex].Aufgaben);
             dlgEditProject.Title = "Projekt bearbeiten";
             dlgEditProject.textBoxName.IsEnabled = false;
 
@@ -300,7 +306,6 @@ namespace MyWorkingDay
                             item.strDescription = dlgEditProject.textBoxDescription.Text;
                             item.dtPlannedStart = (DateTime)dlgEditProject.datePickerStart.SelectedDate;
                             item.dtPlannedEnd = (DateTime)dlgEditProject.datePickerEnd.SelectedDate;
-                            item.Aufgaben = new List<Aufgabe>(dlgEditProject.getProjectTaskList());
 
                             if ((Boolean)dlgEditProject.checkBox.IsChecked)
                                 item.iStatus = 1;

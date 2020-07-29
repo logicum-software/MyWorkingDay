@@ -103,16 +103,15 @@ namespace MyWorkingDay
             return ProjectTasksList;
         }
 
-        internal void setProjectTaskList(List<Aufgabe> aufgaben)
+        internal void addProjectTask(Aufgabe aufgabe)
         {
-            foreach (Aufgabe item in aufgaben)
-                ProjectTasksList.Add(item);
+            ProjectTasksList.Add(aufgabe);
         }
 
         internal Projekt GetProjekt()
         {
             return new Projekt(textBoxName.Text, textBoxDescription.Text, datePickerStart.DisplayDate,
-                datePickerEnd.DisplayDate, ProjectTasksList, MilestonesList, (bool) checkBox.IsChecked);
+                datePickerEnd.DisplayDate, (bool) checkBox.IsChecked);
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)

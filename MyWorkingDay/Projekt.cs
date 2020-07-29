@@ -15,8 +15,6 @@ namespace MyWorkingDay
         public DateTime dtPlannedEnd { get; set; }
         public DateTime dtStart { get; set; }
         public DateTime dtEnd { get; set; }
-        public List<Aufgabe> Aufgaben { get; set; }
-        public List<Meilenstein> Meilensteine { get; set; }
         
         //Status des Projekts: 0 = steht aus, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
         internal int iStatus { get; set; }
@@ -30,12 +28,9 @@ namespace MyWorkingDay
             dtStart = new DateTime(1970, 1, 1);
             dtEnd = new DateTime(1970, 1, 1);
             iStatus = 0;
-            Aufgaben = new List<Aufgabe>();
-            Meilensteine = new List<Meilenstein>();
         }
 
-        public Projekt(String name, String description, DateTime plannedStart, DateTime plannedEnd,
-            List<Aufgabe> aufgaben, List<Meilenstein> meilensteine, Boolean bStarten)
+        public Projekt(String name, String description, DateTime plannedStart, DateTime plannedEnd, Boolean bStarten)
         {
             strName = name;
             strDescription = description;
@@ -43,8 +38,6 @@ namespace MyWorkingDay
             dtPlannedEnd = plannedEnd;
             dtStart = new DateTime(1970, 1, 1);
             dtEnd = new DateTime(1970, 1, 1);
-            Aufgaben = new List<Aufgabe>(aufgaben);
-            Meilensteine = new List<Meilenstein>(meilensteine);
 
             if (bStarten)
                 iStatus = 1;
