@@ -1,3 +1,7 @@
-﻿20200512 10:54 -> Implement Projects
+﻿20200729 10:05 -> Aufgaben zu neuem Projekt hinzufügen (werden nicht gespeichert)
+
+20200729 10:04 -> Projekt bearbeiten (es erscheinen keine Aufgaben)
+
+20200512 10:54 -> Implement Projects
 
 20200512 09:55 -> Edit Task, change Name

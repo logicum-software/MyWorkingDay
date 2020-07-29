@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
@@ -104,13 +105,14 @@ namespace MyWorkingDay
 
         internal void setProjectTaskList(List<Aufgabe> aufgaben)
         {
-            ProjectTasksList = new List<Aufgabe>(aufgaben);
+            foreach (Aufgabe item in aufgaben)
+                ProjectTasksList.Add(item);
         }
 
         internal Projekt GetProjekt()
         {
             return new Projekt(textBoxName.Text, textBoxDescription.Text, datePickerStart.DisplayDate,
-                datePickerEnd.DisplayDate, ProjectTasksList, MilestonesList, (bool) checkBox.IsChecked); //false muss ersetzt werden durch IsChecked
+                datePickerEnd.DisplayDate, ProjectTasksList, MilestonesList, (bool) checkBox.IsChecked);
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
