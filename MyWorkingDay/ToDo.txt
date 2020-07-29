@@ -1,6 +1,6 @@
-﻿20200729 10:05 -> Aufgaben zu neuem Projekt hinzufügen (werden nicht gespeichert)
+﻿20200729 11:58 -> Aufgabenliste aus Projekten entfernen, nur noch referenzieren
 
-20200729 10:04 -> Projekt bearbeiten (es erscheinen keine Aufgaben)
+20200729 10:05 -> Aufgaben zu neuem Projekt hinzufügen (werden nicht gespeichert)
 
 20200512 10:54 -> Implement Projects
 
