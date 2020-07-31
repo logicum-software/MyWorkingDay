@@ -1,4 +1,6 @@
-﻿20200729 11:58 -> Aufgabenliste aus Projekten entfernen, nur noch referenzieren
+﻿20200731 08:11 -> NewTask um Angabe zu evtl. Projekt ergänzen
+
+20200729 11:58 -> Aufgabenliste aus Projekten entfernen, nur noch referenzieren - Erledigt
 
 20200729 10:05 -> Aufgaben zu neuem Projekt hinzufügen (werden nicht gespeichert)
 

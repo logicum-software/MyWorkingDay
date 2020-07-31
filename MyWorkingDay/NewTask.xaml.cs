@@ -127,5 +127,23 @@ namespace MyWorkingDay
         {
             //MessageBox.Show("Datum geändert in:\n" + datePickerEnd.SelectedDate, "Datum geändert", MessageBoxButton.OK);
         }
+
+        private void checkBoxProject_Checked(object sender, RoutedEventArgs e)
+        {
+            if (checkBoxProject.IsChecked == true)
+            {
+                labelProject.IsEnabled = true;
+                buttonChoose.IsEnabled = true;
+            }
+        }
+
+        private void checkBoxProject_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (checkBoxProject.IsChecked == false)
+            {
+                labelProject.IsEnabled = false;
+                buttonChoose.IsEnabled = false;
+            }
+        }
     }
 }

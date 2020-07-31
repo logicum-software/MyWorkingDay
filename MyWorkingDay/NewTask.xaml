@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWorkingDay"
         mc:Ignorable="d"
-        Title="Neue Aufgabe" Height="385.333" Width="434.667" WindowStartupLocation="CenterScreen" FontSize="16">
+        Title="Neue Aufgabe" Height="482" Width="434.667" WindowStartupLocation="CenterScreen" FontSize="16">
     <Grid>
         <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="textBoxName" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" Text="Bitte hier den Namen der Aufgabe eingeben..." VerticalAlignment="Top" FontSize="16" TextChanged="textBoxName_TextChanged"/>
@@ -17,6 +17,9 @@
         <Button x:Name="buttonCancel" Content="Abbrechen" Margin="0,0,10,10" Height="29" VerticalAlignment="Bottom" Click="ButtonCancel_Click" FontSize="16" HorizontalAlignment="Right" Width="102"/>
         <Label x:Name="label3" Content="Geplanter Abschluss" Margin="215,200,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="170"/>
         <DatePicker x:Name="datePickerEnd" Margin="215,231,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="170" SelectedDateChanged="datePickerEnd_SelectedDateChanged"/>
-        <CheckBox x:Name="checkBox" Content="Aufgabe nach dem Speichern starten" Margin="10,280,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="300"/>
+        <CheckBox x:Name="checkBox" Content="Aufgabe nach dem Speichern starten" Margin="10,290,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="300"/>
+        <CheckBox x:Name="checkBoxProject" Content="Aufgabe folgendem Projekt zuweisen:" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Width="300" Checked="checkBoxProject_Checked" Unchecked="checkBoxProject_Unchecked"/>
+        <Label x:Name="labelProject" Content="Kein Projekt ausgewählt" HorizontalAlignment="Left" Margin="25,350,0,0" VerticalAlignment="Top" IsEnabled="False" BorderThickness="0"/>
+        <Button x:Name="buttonChoose" Content="Auswählen" HorizontalAlignment="Left" Margin="208,353,0,0" VerticalAlignment="Top" Width="102" IsEnabled="False"/>
     </Grid>
 </Window>
