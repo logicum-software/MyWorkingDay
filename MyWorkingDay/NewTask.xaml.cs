@@ -53,7 +53,7 @@ namespace MyWorkingDay
 
         internal void setIsStarted(Boolean isStarted)
         {
-            checkBox.IsChecked = isStarted;
+            checkBoxStart.IsChecked = isStarted;
         }
 
         internal void SetTaskList(List<Aufgabe> tasks)
@@ -143,6 +143,25 @@ namespace MyWorkingDay
             {
                 labelProject.IsEnabled = false;
                 buttonChoose.IsEnabled = false;
+            }
+        }
+
+        private void checkBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (checkBoxStart.IsChecked == true)
+            {
+                datePickerStart.IsEnabled = false;
+                label2.IsEnabled = false;
+                datePickerStart.SelectedDate = DateTime.Now;
+            }
+        }
+
+        private void checkBoxStart_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (checkBoxStart.IsChecked == false)
+            {
+                datePickerStart.IsEnabled = true;
+                label2.IsEnabled = true;
             }
         }
     }
