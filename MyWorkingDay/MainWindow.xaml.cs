@@ -31,7 +31,7 @@ namespace MyWorkingDay
             LoadData();
 
             dueTasks = new List<Aufgabe>(appData.Aufgaben);
-            
+
             listBoxTasks.ItemsSource = appData.Aufgaben;
             listBoxProjects.ItemsSource = appData.Projekte;
             listViewDue.ItemsSource = dueTasks;
@@ -148,7 +148,7 @@ namespace MyWorkingDay
             if (dlgNewTask.DialogResult.HasValue && dlgNewTask.DialogResult.Value == true)
             {
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
-                    (DateTime) dlgNewTask.datePickerStart.SelectedDate, (DateTime) dlgNewTask.datePickerEnd.SelectedDate,
+                    (DateTime)dlgNewTask.datePickerStart.SelectedDate, (DateTime)dlgNewTask.datePickerEnd.SelectedDate,
                     (Boolean)dlgNewTask.checkBoxStart.IsChecked, dlgNewTask.labelProject.Content.ToString()));
                 SaveData();
                 RefreshListBoxes();
@@ -189,7 +189,7 @@ namespace MyWorkingDay
             NewProject dlgNewProject = new NewProject();
 
             dlgNewProject.ShowDialog();
-            
+
             if (dlgNewProject.DialogResult.HasValue && dlgNewProject.DialogResult.Value == true)
             {
                 appData.Projekte.Add(dlgNewProject.GetProjekt());
@@ -259,7 +259,7 @@ namespace MyWorkingDay
                                 item.iStatus = 1;
                             else
                                 item.iStatus = 0;
-                            
+
                             SaveData();
                             RefreshListBoxes();
                             MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
@@ -320,6 +320,22 @@ namespace MyWorkingDay
                 SaveData();
                 RefreshListBoxes();
                 MessageBox.Show("Das Projekt wurde gespeichert", "Projekt gespeichert", MessageBoxButton.OK);
+            }
+        }
+
+        private void listViewDue_MouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (listViewDue.SelectedItems != null)
+            {
+                // ContextMenu for Selected Index
+                if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].strName))
+                {
+                    SaveData();
+                    RefreshListBoxes();
+                    MessageBox.Show("Die Aufgabe wurde gelöscht.", "Aufgabe gelöscht", MessageBoxButton.OK);
+                }
+                else
+                    MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);
             }
         }
     }
