@@ -327,7 +327,7 @@ namespace MyWorkingDay
         {
             if (listViewDue.SelectedItems != null)
             {
-                // ContextMenu for Selected Index
+                // ContextMenu for Selected Index 
                 if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].strName))
                 {
                     SaveData();
