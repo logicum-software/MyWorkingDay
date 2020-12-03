@@ -323,7 +323,7 @@ namespace MyWorkingDay
             }
         }
 
-        private void listViewDue_MouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        /*private void listViewDue_MouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (listViewDue.SelectedItems != null)
             {
@@ -335,9 +335,9 @@ namespace MyWorkingDay
                     MessageBox.Show("Die Aufgabe wurde gelöscht.", "Aufgabe gelöscht", MessageBoxButton.OK);
                 }
                 else
-                    MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);*/
+                    MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);
             }
-        }
+        }*/
 
         private void listViewDue_ContextMenuCompleteTask(object sender, RoutedEventArgs e)
         {
