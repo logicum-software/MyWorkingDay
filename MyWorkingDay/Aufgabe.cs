@@ -9,20 +9,20 @@ namespace MyWorkingDay
     [Serializable]
     class Aufgabe
     {
-        internal String strName { get; set; }
-        internal String strDescription { get; set; }
-        internal DateTime dtPlannedStart { get; set; }
-        internal DateTime dtPlannedEnd { get; set; }
-        internal DateTime dtStart { get; set; }
-        internal DateTime dtEnd { get; set; }
-        internal String strColor { get; set; }
-        internal String strProject { get; set; }
-        internal String strDisplayPlannedEnd { get; set; }
+        public String strName { get; set; }
+        public String strDescription { get; set; }
+        public DateTime dtPlannedStart { get; set; }
+        public DateTime dtPlannedEnd { get; set; }
+        public DateTime dtStart { get; set; }
+        public DateTime dtEnd { get; set; }
+        public String strColor { get; set; }
+        public String strProject { get; set; }
+        public String strDisplayPlannedEnd { get; set; }
         
         //Status der Augabe: 0 = steht aus, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
-        internal int iStatus { get; set; }
+        public int iStatus { get; set; }
 
-        internal String strStatusComment { get; set; }
+        public String strStatusComment { get; set; }
 
         public Aufgabe()
         {
