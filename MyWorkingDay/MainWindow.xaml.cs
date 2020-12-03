@@ -328,7 +328,7 @@ namespace MyWorkingDay
             if (listViewDue.SelectedItems != null)
             {
                 // ContextMenu for Selected Index
-                if (appData.delTask(appData.Aufgaben[listViewDue.SelectedIndex].strName))
+                if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].strName))
                 {
                     SaveData();
                     RefreshListBoxes();
@@ -336,6 +336,7 @@ namespace MyWorkingDay
                 }
                 else
                     MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);
+                */
             }
         }
     }

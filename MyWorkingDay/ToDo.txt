@@ -1,4 +1,6 @@
-﻿20200731 08:11 -> NewTask um Angabe zu evtl. Projekt ergänzen
+﻿20201105 09:34 -> listViewDue Right-Click context menu (task completed)
+
+20200731 08:11 -> NewTask um Angabe zu evtl. Projekt ergänzen
 
 20200729 11:58 -> Aufgabenliste aus Projekten entfernen, nur noch referenzieren - Erledigt
 

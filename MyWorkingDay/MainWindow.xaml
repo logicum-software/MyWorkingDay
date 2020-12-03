@@ -51,6 +51,13 @@
             <Grid Margin="0">
                 <Label x:Name="label5" Content="" HorizontalAlignment="Left" Margin="508,6,0,0" VerticalAlignment="Top" Width="85"/>
                 <ListView x:Name="listViewDue" Margin="10" MouseRightButtonUp="listViewDue_MouseRightButtonUp">
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Aufgabe abschliessen"></MenuItem>
+                            <MenuItem Header="Aufgabe abbrechen"></MenuItem>
+                            <MenuItem Header="Aufgabe starten"></MenuItem>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" Width="333">
