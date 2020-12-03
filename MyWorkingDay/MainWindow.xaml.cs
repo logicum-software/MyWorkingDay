@@ -328,15 +328,20 @@ namespace MyWorkingDay
             if (listViewDue.SelectedItems != null)
             {
                 // ContextMenu for Selected Index
-                if (appData.delTask(appData.Aufgaben[listViewDue.SelectedIndex].strName))
+                /*if (appData.delTask(appData.Aufgaben[listViewDue.SelectedIndex].strName))
                 {
                     SaveData();
                     RefreshListBoxes();
                     MessageBox.Show("Die Aufgabe wurde gelöscht.", "Aufgabe gelöscht", MessageBoxButton.OK);
                 }
                 else
-                    MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);
+                    MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);*/
             }
+        }
+
+        private void listViewDue_ContextMenuCompleteTask(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
         }
     }
 }
