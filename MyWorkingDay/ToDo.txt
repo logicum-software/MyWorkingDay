@@ -1,4 +1,4 @@
-﻿20201105 09:34 -> listViewDue Right-Click context menu (task completed)
+﻿20201105 09:34 -> listViewDue Right-Click context menu (fix no item selected)
 
 20200731 08:11 -> NewTask um Angabe zu evtl. Projekt ergänzen
 

@@ -158,7 +158,7 @@ namespace MyWorkingDay
 
         private void ButtonDelTask_Click(object sender, RoutedEventArgs e)
         {
-            if (listBoxTasks.SelectedItem != null)
+            if (listBoxTasks.SelectedItems.Count > 0)
             {
                 if (MessageBox.Show("Möchten Sie die Aufgabe wirklich löschen?", "Aufgabe löschen", MessageBoxButton.YesNo) == MessageBoxResult.No)
                     return;
@@ -323,25 +323,20 @@ namespace MyWorkingDay
             }
         }
 
-        /*private void listViewDue_MouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (listViewDue.SelectedItems != null)
-            {
-                // ContextMenu for Selected Index
-                /*if (appData.delTask(appData.Aufgaben[listViewDue.SelectedIndex].strName))
-                {
-                    SaveData();
-                    RefreshListBoxes();
-                    MessageBox.Show("Die Aufgabe wurde gelöscht.", "Aufgabe gelöscht", MessageBoxButton.OK);
-                }
-                else
-                    MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);
-            }
-        }*/
-
         private void listViewDue_ContextMenuCompleteTask(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
+            if (listViewDue.SelectedItems.Count > 0)
+            {
+                foreach (Aufgabe item in appData.Aufgaben)
+                {
+                    if (item.strName.Equals(listViewDue.SelectedItems[0].ToString()))
+                    {
+                        MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);
         }
     }
 }
