@@ -1,16 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MyWorkingDay
 {
@@ -76,10 +67,11 @@ namespace MyWorkingDay
         {
             foreach (Aufgabe item in taskList)
             {
-                if (String.Compare(item.strName, textBoxName.Text, true) > -1 &&
+                if (item.ProjectID == 0 && // ToDo: Search for same tasks in one project
+                    String.Compare(item.strName, textBoxName.Text, true) > -1 &&
                     String.Compare(item.strName, textBoxName.Text, true) < 1)
                 {
-                    if (MessageBox.Show("Eine Aufgabe mit dem Namen " + textBoxName.Text +
+                    if (MessageBox.Show("Eine projektlose Aufgabe mit dem Namen " + textBoxName.Text +
                         " existiert bereits. Möchten Sie diese ändern?", "Aufgabe ändern", MessageBoxButton.YesNo) == MessageBoxResult.No)
                     {
                         textBoxName.SelectAll();

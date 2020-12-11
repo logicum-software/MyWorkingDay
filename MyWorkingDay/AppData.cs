@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace MyWorkingDay
 {
@@ -20,7 +19,7 @@ namespace MyWorkingDay
         {
             foreach (Aufgabe item in Aufgaben)
             {
-                if (item.ID == ID)
+                if (item.getID() == ID)
                 {
                     if (Aufgaben.Remove(item))
                         return true;

@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkingDay
 {
     [Serializable]
     class Aufgabe
     {
-        public virtual int ID { get; set; }
+        private int ID { get; set; }
         public String strName { get; set; }
         public String strDescription { get; set; }
         public DateTime dtPlannedStart { get; set; }
@@ -17,6 +13,7 @@ namespace MyWorkingDay
         public DateTime dtStart { get; set; }
         public DateTime dtEnd { get; set; }
         public String strColor { get; set; }
+        public int ProjectID { get; set; }
         public String strProject { get; set; }
         public String strDisplayPlannedEnd { get; set; }
         
@@ -42,13 +39,14 @@ namespace MyWorkingDay
             else
                 strColor = "Black";
 
+            ProjectID = 0;
             strProject = "ohne";
             strDisplayPlannedEnd = dtPlannedEnd.ToString("dd.MM.yyyy");
             ID = this.GetHashCode();
         }
 
         public Aufgabe(String name, String description, DateTime plannedStart, 
-            DateTime plannedEnd, Boolean bStarten, String project)
+            DateTime plannedEnd, Boolean bStarten, Projekt project)
         {
             strName = name;
             strDescription = description;
@@ -72,10 +70,16 @@ namespace MyWorkingDay
             else
                 strColor = "Black";
 
-            if (String.IsNullOrWhiteSpace(project))
+            if (project == null)
+            {
+                ProjectID = 0;
                 strProject = "ohne";
+            }
             else
-                strProject = project;
+            {
+                ProjectID = project.getID();
+                strProject = project.strName;
+            }
 
             strDisplayPlannedEnd = dtPlannedEnd.ToString("dd.MM.yyyy");
             strStatusComment = "";

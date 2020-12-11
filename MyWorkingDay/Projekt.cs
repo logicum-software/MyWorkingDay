@@ -9,6 +9,7 @@ namespace MyWorkingDay
     [Serializable]
     class Projekt
     {
+        private int ID { get; set; }
         public String strName { get; set; }
         public String strDescription { get; set; }
         public DateTime dtPlannedStart { get; set; }
@@ -30,6 +31,7 @@ namespace MyWorkingDay
             dtEnd = new DateTime(1970, 1, 1);
             iStatus = 0;
             strStatusComment = "";
+            ID = this.GetHashCode();
         }
 
         public Projekt(String name, String description, DateTime plannedStart, DateTime plannedEnd, Boolean bStarten)
@@ -47,6 +49,12 @@ namespace MyWorkingDay
                 iStatus = 0;
             
             strStatusComment = "";
+            ID = this.GetHashCode();
+        }
+
+        internal int getID()
+        {
+            return ID;
         }
 
         internal bool startProject()

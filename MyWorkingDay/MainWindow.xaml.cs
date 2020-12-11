@@ -149,7 +149,7 @@ namespace MyWorkingDay
             {
                 appData.Aufgaben.Add(new Aufgabe(dlgNewTask.textBoxName.Text, dlgNewTask.textBoxDescription.Text,
                     (DateTime)dlgNewTask.datePickerStart.SelectedDate, (DateTime)dlgNewTask.datePickerEnd.SelectedDate,
-                    (Boolean)dlgNewTask.checkBoxStart.IsChecked, dlgNewTask.labelProject.Content.ToString()));
+                    (Boolean)dlgNewTask.checkBoxStart.IsChecked, null));
                 SaveData();
                 RefreshListBoxes();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
@@ -168,7 +168,7 @@ namespace MyWorkingDay
                     return;
                 else
                 {
-                    if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].ID))
+                    if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].getID()))
                     {
                         SaveData();
                         RefreshListBoxes();
