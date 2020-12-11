@@ -16,11 +16,11 @@ namespace MyWorkingDay
             Projekte = new List<Projekt>();
         }
         
-        internal Boolean delTask(String name)
+        internal Boolean delTask(int ID)
         {
             foreach (Aufgabe item in Aufgaben)
             {
-                if (item.strName.Equals(name))
+                if (item.ID == ID)
                 {
                     if (Aufgaben.Remove(item))
                         return true;

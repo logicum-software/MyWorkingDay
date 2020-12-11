@@ -153,6 +153,10 @@ namespace MyWorkingDay
                 SaveData();
                 RefreshListBoxes();
                 MessageBox.Show("Die Aufgabe wurde gespeichert", "Aufgabe gespeichert", MessageBoxButton.OK);
+                foreach (Aufgabe item in appData.Aufgaben)
+                {
+                    MessageBox.Show("Die ID lautet " + item.getID().ToString(), "IDs", MessageBoxButton.OK);
+                }
             }
         }
 
@@ -164,7 +168,7 @@ namespace MyWorkingDay
                     return;
                 else
                 {
-                    if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].strName))
+                    if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].ID))
                     {
                         SaveData();
                         RefreshListBoxes();

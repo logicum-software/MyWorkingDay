@@ -9,6 +9,7 @@ namespace MyWorkingDay
     [Serializable]
     class Aufgabe
     {
+        public virtual int ID { get; set; }
         public String strName { get; set; }
         public String strDescription { get; set; }
         public DateTime dtPlannedStart { get; set; }
@@ -43,6 +44,7 @@ namespace MyWorkingDay
 
             strProject = "ohne";
             strDisplayPlannedEnd = dtPlannedEnd.ToString("dd.MM.yyyy");
+            ID = this.GetHashCode();
         }
 
         public Aufgabe(String name, String description, DateTime plannedStart, 
@@ -77,6 +79,12 @@ namespace MyWorkingDay
 
             strDisplayPlannedEnd = dtPlannedEnd.ToString("dd.MM.yyyy");
             strStatusComment = "";
+            ID = this.GetHashCode();
+        }
+
+        internal int getID()
+        {
+            return ID;
         }
 
         internal bool startTask()
