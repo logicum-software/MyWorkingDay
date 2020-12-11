@@ -333,7 +333,7 @@ namespace MyWorkingDay
             {
                 foreach (Aufgabe item in appData.Aufgaben)
                 {
-                    if (item.strName.Equals(listViewDue.SelectedItems[0].ToString()))
+                    if (item.strName.Equals(listViewDue.Items.CurrentItem.ToString()))
                     {
                         MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
                     }
