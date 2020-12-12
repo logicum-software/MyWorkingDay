@@ -331,10 +331,14 @@ namespace MyWorkingDay
         {
             if (listViewDue.SelectedItems.Count > 0)
             {
+                var selectedItem = listViewDue.SelectedItems[0] as Aufgabe;
                 foreach (Aufgabe item in appData.Aufgaben)
                 {
-                    if (item.strName.Equals(listViewDue.Items.CurrentItem.ToString()))
+                    if (item.strName.Equals(selectedItem.strName))
                     {
+                        item.completeTask();
+                        SaveData();
+                        RefreshListBoxes();
                         MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
                     }
                 }
