@@ -72,7 +72,8 @@ namespace MyWorkingDay
                     String.Compare(item.strName, textBoxName.Text, true) < 1)
                 {
                     if (MessageBox.Show("Eine projektlose Aufgabe mit dem Namen " + textBoxName.Text +
-                        " existiert bereits. Möchten Sie diese ändern?", "Aufgabe ändern", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                        " existiert bereits. Bitte wählen Sie einen anderen Namen.", "Aufgabe bereits vorhanden",
+                        MessageBoxButton.OK) == MessageBoxResult.OK)
                     {
                         textBoxName.SelectAll();
                         textBoxName.Focus();
