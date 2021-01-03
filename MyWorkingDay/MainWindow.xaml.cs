@@ -234,6 +234,9 @@ namespace MyWorkingDay
 
         private void listBoxTasks_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            MessageBox.Show(listBoxTasks.SelectedItem.GetHashCode().ToString(), "Aufgaben-ID", MessageBoxButton.OK);
+            MessageBox.Show(appData.Aufgaben[1].GetHashCode().ToString(), "Aufgaben-ID", MessageBoxButton.OK);
+
             NewTask dlgEditTask = new NewTask();
 
             dlgEditTask.setName(appData.Aufgaben[listBoxTasks.SelectedIndex].strName);
