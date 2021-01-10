@@ -30,6 +30,18 @@ namespace MyWorkingDay
             return false;
         }
 
+        internal bool completeTask(Aufgabe task)
+        {
+            if (task.iStatus == 1)
+            {
+                task.iStatus = 3;
+                task.dtEnd = DateTime.Now;
+                return true;
+            }
+            else
+                return false;
+        }
+
         internal Boolean containsTask(String name)
         {
             foreach (Aufgabe item in Aufgaben)

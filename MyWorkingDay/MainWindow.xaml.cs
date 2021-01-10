@@ -30,7 +30,7 @@ namespace MyWorkingDay
 
             LoadData();
 
-            dueTasks = new List<Aufgabe>(appData.Aufgaben);
+            dueTasks = new List<Aufgabe>();
 
             listBoxTasks.ItemsSource = appData.Aufgaben;
             listBoxProjects.ItemsSource = appData.Projekte;
@@ -129,7 +129,14 @@ namespace MyWorkingDay
 
         private void RefreshListBoxes()
         {
-            dueTasks = new List<Aufgabe>(appData.Aufgaben);
+            dueTasks.Clear();
+
+            foreach (Aufgabe item in appData.Aufgaben)
+            {
+                if (item.iStatus == 0 || item.iStatus == 1 || item.iStatus == 2)
+                    dueTasks.Add(item);
+            }
+            
             listViewDue.ItemsSource = dueTasks;
             listBoxTasks.Items.Refresh();
             listBoxProjects.Items.Refresh();
@@ -334,7 +341,16 @@ namespace MyWorkingDay
         {
             if (listViewDue.SelectedItems.Count > 0)
             {
-                var selectedItem = listViewDue.SelectedItems[0] as Aufgabe;
+                if (appData.completeTask((Aufgabe)listViewDue.SelectedItem))
+                {
+                    SaveData();
+                    RefreshListBoxes();
+                    MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
+                }
+                else
+                    MessageBox.Show("Die Aufgabe konnte nicht abgeschlossen werden.", "Aufgabe nicht abgeschlossen", MessageBoxButton.OK);
+
+                /*var selectedItem = listViewDue.SelectedItems[0] as Aufgabe;
                 foreach (Aufgabe item in appData.Aufgaben)
                 {
                     if (item.strName.Equals(selectedItem.strName))
@@ -344,7 +360,7 @@ namespace MyWorkingDay
                         RefreshListBoxes();
                         MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
                     }
-                }
+                }*/
             }
             else
                 MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);
