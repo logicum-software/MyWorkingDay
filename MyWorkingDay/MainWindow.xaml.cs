@@ -168,11 +168,11 @@ namespace MyWorkingDay
                     return;
                 else
                 {
-                    if (appData.delTask(appData.Aufgaben[listBoxTasks.SelectedIndex].getID()))
+                    if (appData.Aufgaben.Remove((Aufgabe)listBoxTasks.SelectedItem))
                     {
+                        MessageBox.Show("Die Aufgabe wurde gelöscht.", "Aufgabe gelöscht", MessageBoxButton.OK);
                         SaveData();
                         RefreshListBoxes();
-                        MessageBox.Show("Die Aufgabe wurde gelöscht.", "Aufgabe gelöscht", MessageBoxButton.OK);
                     }
                     else
                         MessageBox.Show("Die Aufgabe konnte nicht gelöscht werden.", "Löschen fehlgeschlagen", MessageBoxButton.OK);
