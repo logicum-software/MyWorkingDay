@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace MyWorkingDay
 {
@@ -32,14 +33,22 @@ namespace MyWorkingDay
 
         internal bool completeTask(Aufgabe task)
         {
-            if (task.iStatus == 1)
+            if (task.iStatus != 3)
             {
                 task.iStatus = 3;
                 task.dtEnd = DateTime.Now;
                 return true;
             }
             else
-                return false;
+            {
+                if (MessageBox.Show("Die Aufgabe wurde bereits abgeschlossen. Möchten Sie das Abschlußdatum ändern?", "Projekt löschen", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    task.dtEnd = DateTime.Now;
+                    return true;
+                }
+                else
+                    return false;
+            }
         }
 
         internal Boolean containsTask(String name)
