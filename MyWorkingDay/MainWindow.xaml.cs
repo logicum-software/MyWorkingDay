@@ -53,7 +53,7 @@ namespace MyWorkingDay
             //  DispatcherTimer setup
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 3);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
             dispatcherTimer.Start();
         }
 
@@ -79,7 +79,7 @@ namespace MyWorkingDay
             }
             else
             {
-                labelStatus.Content = "Sie haben keine überfälligen Aufgaben.";
+                labelStatus.Content = "Sie haben keine überfälligen Aufgaben oder Projekte.";
                 image.Source = biGreen;
             }
 
