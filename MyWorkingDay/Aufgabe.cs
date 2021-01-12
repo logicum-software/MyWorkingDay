@@ -32,7 +32,7 @@ namespace MyWorkingDay
             dtStart = DateTime.Now;
             dtEnd = new DateTime(1970, 1, 1);
             iStatus = 0;
-            strStatusComment = "";
+            strStatusComment = "steht aus";
 
             if (dtPlannedEnd <= DateTime.Now)
                 strColor = "Red";
@@ -58,11 +58,13 @@ namespace MyWorkingDay
             {
                 dtPlannedStart = DateTime.Now;
                 iStatus = 1;
+                strStatusComment = "gestartet";
             }
             else
             {
                 dtPlannedStart = plannedStart;
                 iStatus = 0;
+                strStatusComment = "steht aus";
             }
             
             if (dtPlannedEnd <= DateTime.Now)
@@ -82,7 +84,6 @@ namespace MyWorkingDay
             }
 
             strDisplayPlannedEnd = dtPlannedEnd.ToString("dd.MM.yyyy");
-            strStatusComment = "";
             ID = this.GetHashCode();
         }
 
@@ -96,6 +97,7 @@ namespace MyWorkingDay
             if (iStatus == 0 | iStatus == 2)
             {
                 iStatus = 1;
+                strStatusComment = "gestartet";
                 dtStart = DateTime.Now;
                 return true;
             }
@@ -108,6 +110,7 @@ namespace MyWorkingDay
             if (iStatus == 1)
             {
                 iStatus = 3;
+                strStatusComment = "abgeschlossen";
                 dtEnd = DateTime.Now;
                 return true;
             }
@@ -120,6 +123,7 @@ namespace MyWorkingDay
             if (iStatus == 0 | iStatus == 1 | iStatus == 2)
             {
                 iStatus = 4;
+                strStatusComment = "abgebrochen";
                 dtEnd = DateTime.Now;
                 return true;
             }
@@ -132,6 +136,7 @@ namespace MyWorkingDay
             if (iStatus == 1)
             {
                 iStatus = 2;
+                strStatusComment = "angehalten";
                 return true;
             }
             else

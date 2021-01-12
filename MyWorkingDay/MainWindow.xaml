@@ -51,6 +51,12 @@
             <Grid Margin="0">
                 <Label x:Name="label5" Content="" HorizontalAlignment="Left" Margin="508,6,0,0" VerticalAlignment="Top" Width="85"/>
                 <ListView x:Name="listViewDue" Margin="10" SelectionMode="Single">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                            <Setter Property="VerticalContentAlignment" Value="Stretch"></Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
                     <ListView.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="Aufgabe abschliessen" Click="listViewDue_ContextMenuCompleteTask"></MenuItem>
@@ -60,17 +66,17 @@
                     </ListView.ContextMenu>
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name" Width="333">
+                            <GridViewColumn Header="Name" Width="233">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding strName}" Foreground="{Binding strColor}"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Status" Width="50">
+                            <GridViewColumn Header="Status" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding iStatus}" Foreground="{Binding strColor}"/>
+                                        <TextBlock Text="{Binding strStatusComment}" TextAlignment="Center" Foreground="{Binding strColor}"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

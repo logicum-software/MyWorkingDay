@@ -131,7 +131,8 @@ namespace MyWorkingDay
 
             foreach (Aufgabe item in appData.Aufgaben)
             {
-                if (item.iStatus == 0 || item.iStatus == 1 || item.iStatus == 2)
+                //Following Statement commented for testing purpose
+                //if (item.iStatus == 0 || item.iStatus == 1 || item.iStatus == 2)
                     dueTasks.Add(item);
             }
             
