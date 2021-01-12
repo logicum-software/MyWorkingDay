@@ -63,7 +63,7 @@ namespace MyWorkingDay
 
             foreach (Aufgabe item in appData.Aufgaben)
             {
-                if (DateTime.Now >= item.dtPlannedEnd)
+                if (DateTime.Now >= item.dtPlannedEnd && (item.iStatus == 0 || item.iStatus == 1 || item.iStatus == 2))
                 {
                     item.strColor = "Red";
                     iDueCount++;
