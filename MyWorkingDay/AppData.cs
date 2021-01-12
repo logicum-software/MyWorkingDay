@@ -54,11 +54,23 @@ namespace MyWorkingDay
         internal bool cancelTask(Aufgabe task)
         {
             if (task.iStatus != 4)
+            {
                 task.iStatus = 4;
+                return true;
+            }
             else
-                MessageBox.Show("Die Aufgabe wurde bereits abgebrochen.", "Aufgabe abgebrochen", MessageBoxButton.OK);
+                return false;
+        }
 
-            return true;
+        internal bool startTask(Aufgabe task)
+        {
+            if (task.iStatus == 0 || task.iStatus == 2)
+            {
+                task.iStatus = 1;
+                return true;
+            }
+            else
+                return false;
         }
 
         internal Boolean containsTask(String name)

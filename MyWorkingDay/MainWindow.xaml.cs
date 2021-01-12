@@ -365,5 +365,24 @@ namespace MyWorkingDay
             else
                 MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);
         }
+
+        private void listViewDue_ContextMenuStartTask(object sender, RoutedEventArgs e)
+        {
+            if (listViewDue.SelectedItems.Count > 0)
+            {
+                if (appData.startTask((Aufgabe)listViewDue.SelectedItem))
+                {
+                    SaveData();
+                    RefreshListBoxes();
+                    MessageBox.Show("Die Aufgabe wurde gestartet.", "Aufgabe gestartet", MessageBoxButton.OK);
+                }
+                else
+                    MessageBox.Show("Die Aufgabe konnte nicht gestartet werden, da sie bereits gestartet " +
+                        "wurde oder bereits abgeschlossen oder abgebrochen wurde.", "Aufgabe nicht gestartet",
+                        MessageBoxButton.OK);
+            }
+            else
+                MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);
+        }
     }
 }

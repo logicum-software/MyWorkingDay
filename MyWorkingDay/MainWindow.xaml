@@ -55,7 +55,7 @@
                         <ContextMenu>
                             <MenuItem Header="Aufgabe abschliessen" Click="listViewDue_ContextMenuCompleteTask"></MenuItem>
                             <MenuItem Header="Aufgabe abbrechen" Click="listViewDue_ContextMenuCancelTask"></MenuItem>
-                            <MenuItem Header="Aufgabe starten"></MenuItem>
+                            <MenuItem Header="Aufgabe starten" Click="listViewDue_ContextMenuStartTask"></MenuItem>
                         </ContextMenu>
                     </ListView.ContextMenu>
                     <ListView.View>
