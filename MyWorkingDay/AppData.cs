@@ -41,7 +41,7 @@ namespace MyWorkingDay
             }
             else
             {
-                if (MessageBox.Show("Die Aufgabe wurde bereits abgeschlossen. Möchten Sie das Abschlußdatum ändern?", "Projekt löschen", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Die Aufgabe wurde bereits abgeschlossen. Möchten Sie das Abschlußdatum ändern?", "Bereits abgeschlossen", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     task.dtEnd = DateTime.Now;
                     return true;
@@ -49,6 +49,16 @@ namespace MyWorkingDay
                 else
                     return false;
             }
+        }
+
+        internal bool cancelTask(Aufgabe task)
+        {
+            if (task.iStatus != 4)
+                task.iStatus = 4;
+            else
+                MessageBox.Show("Die Aufgabe wurde bereits abgebrochen.", "Aufgabe abgebrochen", MessageBoxButton.OK);
+
+            return true;
         }
 
         internal Boolean containsTask(String name)

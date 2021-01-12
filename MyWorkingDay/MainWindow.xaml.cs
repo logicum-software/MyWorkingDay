@@ -84,8 +84,6 @@ namespace MyWorkingDay
             }
 
             RefreshListBoxes();
-            //MessageBox.Show("Timer ausgelöst.", "Timer", MessageBoxButton.OK);
-            //throw new NotImplementedException();
         }
 
         private void LoadData()
@@ -349,18 +347,23 @@ namespace MyWorkingDay
                 }
                 else
                     MessageBox.Show("Die Aufgabe konnte nicht abgeschlossen werden.", "Aufgabe nicht abgeschlossen", MessageBoxButton.OK);
+            }
+            else
+                MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);
+        }
 
-                /*var selectedItem = listViewDue.SelectedItems[0] as Aufgabe;
-                foreach (Aufgabe item in appData.Aufgaben)
+        private void listViewDue_ContextMenuCancelTask(object sender, RoutedEventArgs e)
+        {
+            if (listViewDue.SelectedItems.Count > 0)
+            {
+                if (appData.cancelTask((Aufgabe)listViewDue.SelectedItem))
                 {
-                    if (item.strName.Equals(selectedItem.strName))
-                    {
-                        item.completeTask();
-                        SaveData();
-                        RefreshListBoxes();
-                        MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
-                    }
-                }*/
+                    SaveData();
+                    RefreshListBoxes();
+                    MessageBox.Show("Die Aufgabe wurde abgebrochen.", "Aufgabe abgebrochen", MessageBoxButton.OK);
+                }
+                else
+                    MessageBox.Show("Die Aufgabe konnte nicht abgebrochen werden.", "Aufgabe nicht abgebrochen", MessageBoxButton.OK);
             }
             else
                 MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);
