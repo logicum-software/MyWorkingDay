@@ -31,7 +31,8 @@ namespace MyWorkingDay
             return false;
         }
 
-        internal bool completeTask(Aufgabe task)
+        // Obsolete - wird über die Klasse Aufgabe gemacht
+        /*internal bool completeTask(Aufgabe task)
         {
             if (task.iStatus != 3)
             {
@@ -49,7 +50,7 @@ namespace MyWorkingDay
                 else
                     return false;
             }
-        }
+        }*/
 
         internal bool cancelTask(Aufgabe task)
         {

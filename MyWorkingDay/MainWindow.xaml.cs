@@ -337,14 +337,21 @@ namespace MyWorkingDay
         {
             if (listViewDue.SelectedItems.Count > 0)
             {
-                if (appData.completeTask((Aufgabe)listViewDue.SelectedItem))
+                Aufgabe tempAufgabe = (Aufgabe)listViewDue.SelectedItem;
+                foreach (Aufgabe item in appData.Aufgaben)
                 {
-                    SaveData();
-                    RefreshListBoxes();
-                    MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
+                    if (item.getID() == tempAufgabe.getID())
+                    {
+                        if (item.completeTask())
+                        {
+                            SaveData();
+                            RefreshListBoxes();
+                            MessageBox.Show("Die Aufgabe wurde abgeschlossen.", "Aufgabe abgeschlossen", MessageBoxButton.OK);
+                        }
+                        else
+                            MessageBox.Show("Die Aufgabe konnte nicht abgeschlossen werden.", "Aufgabe nicht abgeschlossen", MessageBoxButton.OK);
+                    }
                 }
-                else
-                    MessageBox.Show("Die Aufgabe konnte nicht abgeschlossen werden.", "Aufgabe nicht abgeschlossen", MessageBoxButton.OK);
             }
             else
                 MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);

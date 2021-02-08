@@ -17,7 +17,7 @@ namespace MyWorkingDay
         public String strProject { get; set; }
         public String strDisplayPlannedEnd { get; set; }
         
-        //Status der Augabe: 0 = steht aus, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
+        //Status der Augabe: 0 = ausstehend, 1 = gestartet, 2 = angehalten, 3 = abgeschlossen, 4 = abgebrochen
         public int iStatus { get; set; }
 
         public String strStatusComment { get; set; }
@@ -32,7 +32,7 @@ namespace MyWorkingDay
             dtStart = DateTime.Now;
             dtEnd = new DateTime(1970, 1, 1);
             iStatus = 0;
-            strStatusComment = "steht aus";
+            strStatusComment = "ausstehend";
 
             if (dtPlannedEnd <= DateTime.Now)
                 strColor = "Red";
@@ -64,7 +64,7 @@ namespace MyWorkingDay
             {
                 dtPlannedStart = plannedStart;
                 iStatus = 0;
-                strStatusComment = "steht aus";
+                strStatusComment = "ausstehend";
             }
             
             if (dtPlannedEnd <= DateTime.Now)
@@ -107,7 +107,7 @@ namespace MyWorkingDay
 
         internal bool completeTask()
         {
-            if (iStatus == 1)
+            if (iStatus != 3)
             {
                 iStatus = 3;
                 strStatusComment = "abgeschlossen";
