@@ -361,14 +361,21 @@ namespace MyWorkingDay
         {
             if (listViewDue.SelectedItems.Count > 0)
             {
-                if (appData.cancelTask((Aufgabe)listViewDue.SelectedItem))
+                Aufgabe tempAufgabe = (Aufgabe)listViewDue.SelectedItem;
+                foreach (Aufgabe item in appData.Aufgaben)
                 {
-                    SaveData();
-                    RefreshListBoxes();
-                    MessageBox.Show("Die Aufgabe wurde abgebrochen.", "Aufgabe abgebrochen", MessageBoxButton.OK);
+                    if (item.getID() == tempAufgabe.getID())
+                    {
+                        if (item.cancelTask())
+                        {
+                            SaveData();
+                            RefreshListBoxes();
+                            MessageBox.Show("Die Aufgabe wurde abgebrochen.", "Aufgabe abgebrochen", MessageBoxButton.OK);
+                        }
+                        else
+                            MessageBox.Show("Die Aufgabe konnte nicht abgebrochen werden.", "Aufgabe nicht abgebrochen", MessageBoxButton.OK);
+                    }
                 }
-                else
-                    MessageBox.Show("Die Aufgabe konnte nicht abgebrochen werden.", "Aufgabe nicht abgebrochen", MessageBoxButton.OK);
             }
             else
                 MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);
@@ -378,16 +385,25 @@ namespace MyWorkingDay
         {
             if (listViewDue.SelectedItems.Count > 0)
             {
-                if (appData.startTask((Aufgabe)listViewDue.SelectedItem))
+                Aufgabe tempAufgabe = (Aufgabe)listViewDue.SelectedItem;
+                foreach (Aufgabe item in appData.Aufgaben)
                 {
-                    SaveData();
-                    RefreshListBoxes();
-                    MessageBox.Show("Die Aufgabe wurde gestartet.", "Aufgabe gestartet", MessageBoxButton.OK);
+                    if (item.getID() == tempAufgabe.getID())
+                    {
+                        if (item.startTask())
+                        {
+                            SaveData();
+                            RefreshListBoxes();
+                            MessageBox.Show("Die Aufgabe wurde gestartet.", "Aufgabe gestartet", MessageBoxButton.OK);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Die Aufgabe konnte nicht gestartet werden, da sie bereits gestartet " +
+                                    "wurde oder bereits abgeschlossen oder abgebrochen wurde.", "Aufgabe nicht gestartet",
+                                    MessageBoxButton.OK);
+                        }
+                    }
                 }
-                else
-                    MessageBox.Show("Die Aufgabe konnte nicht gestartet werden, da sie bereits gestartet " +
-                        "wurde oder bereits abgeschlossen oder abgebrochen wurde.", "Aufgabe nicht gestartet",
-                        MessageBoxButton.OK);
             }
             else
                 MessageBox.Show("Bitte wählen Sie einen Eintrag aus.", "Kein Eintrag ausgewählt", MessageBoxButton.OK);
